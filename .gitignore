@@ -1,0 +1,11 @@
+/bower_components/
+/node_modules/
+/.idea/
+*.xml
+
+/sites/**/js/script.js
+/sites/**/js/templates.js
+/sites/**/css/style.css
+/sites/**/index.html
+/sites/src/js/vendor.js
+

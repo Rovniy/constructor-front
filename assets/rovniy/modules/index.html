@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='rovniy'>
+<head>
+    <base href="/">
+    <meta charset="UTF-8">
+    <meta property="fb:app_id" content="1770916429852830"/>
+    <meta property="og:title" content="Rovniy"/>
+    <meta property="og:description" content="Растим аудиторию. Даром."/>
+    <meta property="og:image" content="http://www.streampub.net/src/img/base/og-image.jpg">
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="http://www.streampub.net" />
+    <meta name="viewport" content="width=1200">
+
+    <title>Rovniy Andrew</title>
+
+    <link rel="shortcut icon" href="/src/img/base/favicon.png">
+
+    <link href="css/style.css" rel="stylesheet" type="text/css"/>
+
+    <script src="/src/js/vendor.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/templates.js"></script>
+
+    @@include('../core/includes/yandex.html')
+    @@include('../core/includes/googleanalitics.html', {"goId": "UA-82308901-1"})
+</head>
+
+<body ng-controller="appController">
+
+    <div id="wrap" style="background: url({{backgroundImg}}); background-size: cover">
+        @@include('../modules/header/header.html')
+
+        <ng-view autoscroll="true"></ng-view>
+
+        @@include('../modules/footer/footer.html')
+    </div>
+</body>
+</html>

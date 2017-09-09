@@ -1,0 +1,9 @@
+<div id="login-page" class="container-fluid">
+    <div class="login-box" ng-class="{'has-error':vm.error}">
+        <input ng-model="vm.login" class="form-control" type="text" placeholder="Login">
+        <input ng-model="vm.password" class="form-control" type="password" placeholder="Password">
+        <button ng-click="vm.loginPost(vm.login, vm.password)" class="btn btn-success">Сосни тунца, Алёша</button>
+        <span ng-if="vm.error" class="error-login">оралка для сосалки</span>
+    </div>
+</div>
+
