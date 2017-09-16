@@ -77,13 +77,14 @@ var jsGen = function(name){
             .pipe(gulp.dest(gulpDest));
     };
 };
-gulp.task('js-rovniy', jsGen('rovniy'));
+gulp.task('js-uspy', jsGen('uspy'));
 
 
 /**
  * Сборка всего CSS + LESS
  */
 var lessGen = function(name){
+    console.log('12312341234123');
     return function (){
         var gulpSrc = './assets/' + name + '/core/styles/_common.less',
             gulpDest = './sites/' + name + '/css';
@@ -95,7 +96,7 @@ var lessGen = function(name){
             .pipe(gulp.dest(gulpDest));
     };
 };
-gulp.task('less-rovniy', lessGen('rovniy'));
+gulp.task('less-uspy', lessGen('uspy'));
 
 
 /**
@@ -117,7 +118,7 @@ var htmlGen = function(name) {
             .pipe(gulp.dest(gulpDest));
     }
 };
-gulp.task('html-rovniy',['js-rovniy', 'templates'], htmlGen('rovniy'));
+gulp.task('html-uspy',['js-uspy', 'templates'], htmlGen('uspy'));
 
 /**
  * Сборка всех шаблонов в JS файл - kaskonokika
@@ -139,7 +140,7 @@ function templateGen(name) {
             //.pipe(livereload(server));
     }
 }
-gulp.task('templates-rovniy', [], templateGen('rovniy'));
+gulp.task('templates-uspy', [], templateGen('uspy'));
 
 
 /**
@@ -153,17 +154,17 @@ gulp.task('bower-prune', function() {
     return bower({cmd: 'prune'});
 });
 
-gulp.task('rovniy', ['js-rovniy', 'less-rovniy', 'html-rovniy']);
-gulp.task('templates', ['templates-rovniy']);
-gulp.task('html', ['html-rovniy']);
-gulp.task('build', ['rovniy']);
+gulp.task('uspy', ['js-uspy', 'less-uspy', 'html-uspy']);
+gulp.task('templates', ['templates-uspy']);
+gulp.task('html', ['html-uspy']);
+gulp.task('build', ['uspy']);
 
 var taskWatch = function(){
     gulp.run('build');
 
-    gulp.watch(['./assets/rovniy/**/*.html'], ['html-rovniy']);
-    gulp.watch(['./assets/rovniy/**/*.less'],['less-rovniy']);
-    gulp.watch(['./assets/rovniy/**/*.js'],['js-rovniy']);
+    gulp.watch(['./assets/uspy/**/*.html'], ['html-uspy']);
+    gulp.watch(['./assets/uspy/**/*.less'],['less-uspy']);
+    gulp.watch(['./assets/uspy/**/*.js'],['js-uspy']);
 };
 
 // Watch
@@ -178,7 +179,7 @@ gulp.task('watch', function() {
 
 // configure proxy middleware options
 var options = {
-    target: 'http://api.rovniy.ru', // target host
+    target: 'http://api.uspy.ru', // target host
     changeOrigin: true,               // needed for virtual hosted sites
     ws: true,                         // proxy websockets
     secure: false,                   //for https
@@ -187,23 +188,23 @@ var options = {
 
         if(cook!=undefined ) {
             if (cook[0].indexOf('PLAY_SESSION')>-1) {
-                proxyRes.headers['set-cookie'] = cook[0].replace('Domain=.rovniy.ru','Domain=.rovniy.local');
+                proxyRes.headers['set-cookie'] = cook[0].replace('Domain=.uspy.ru','Domain=.uspy.local');
                 console.log('cookie created successfully');
             }
         }
     }
 };
 
-var proxy = proxyMiddleware(['/api','/rovniy'], options);
+var proxy = proxyMiddleware(['/api','/uspy'], options);
 
 var serverGen = function(proxy1, cb){
-    var rovniyApp = expressFunc('rovniy');
+    var uspyApp = expressFunc('uspy');
 
     return function() {
         express()
             .use('/src', express.static('./sites/src'))
             .use(proxy1).on('upgrade', proxy1.upgrade)//
-            .use(vhost('rovniy.local', rovniyApp))
+            .use(vhost('uspy.local', uspyApp))
             .listen(9360);
         cb()
     };

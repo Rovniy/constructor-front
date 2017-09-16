@@ -1,0 +1,139 @@
+#header-area {
+  @height: 75px;
+  height: @height;
+  background: transparent;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  .logo-area {
+    height: @height;
+    a {
+      display: block;
+      height: @height;
+      width: auto;
+      transition: .2s ease;
+      padding: 0 0 0 20px;
+      .logo {
+        display: block;
+        font: 40px/@height @fm-m;
+        text-transform: uppercase;
+        color: #000;
+        transition: .2s ease;
+      }
+      &:hover {
+        text-decoration: none;
+        outline: none;
+        .logo {
+          color: #f04b48;
+          transition: .2s ease;
+        }
+      }
+      &:focus, &visited {}
+      text-decoration: none;
+      outline: none;
+      color: #000;
+    }
+
+  }
+  .menu-area {
+    max-width: 600px;
+    width: 600px;
+    margin: 0 auto;
+    padding: 0;
+    .list-inline {
+      margin: 0 10px;
+      li {
+        @keyframes scroll {
+          0% {
+            background: linear-gradient(to right, #f04b48 0%, rgba(0,0,0,0) 0%);
+          }
+          10% {
+            background: linear-gradient(to right, #f04b48 20%, rgba(0,0,0,0) 20%);
+          }
+          20% {
+            background: linear-gradient(to right, #f04b48 40%, rgba(0,0,0,0) 40%);
+          }
+          30% {
+            background: linear-gradient(to right, #f04b48 60%, rgba(0,0,0,0) 60%);
+          }
+          40% {
+            background: linear-gradient(to right, #f04b48 80%, rgba(0,0,0,0) 80%);
+          }
+          50% {
+            background: linear-gradient(to right, #f04b48 100%, rgba(0,0,0,0) 100%);
+          }
+          60% {
+            background: linear-gradient(to right, #f04b48 80%, rgba(0,0,0,0) 80%);
+          }
+          70% {
+            background: linear-gradient(to right, #f04b48 60%, rgba(0,0,0,0) 60%);
+          }
+          80% {
+            background: linear-gradient(to right, #f04b48 40%, rgba(0,0,0,0) 40%);
+          }
+          90% {
+            background: linear-gradient(to right, #f04b48 20%, rgba(0,0,0,0) 20%);
+          }
+          100% {
+            background: linear-gradient(to right, #f04b48 0%, rgba(0,0,0,0) 0%);
+          }
+        }
+        margin: 0 5px ;
+        a {
+          display: block;
+          margin: 24px 0;
+          padding: 0 5px;
+          width: auto;
+          height: 25px;
+          font: 15px/25px @fm-m;
+          color: #e4e4e4;
+          vertical-align: middle;
+          text-transform: uppercase;
+          &:hover {
+            animation: scroll 2s infinite ease-in-out;
+            text-decoration: none;
+          }
+          &:focus {
+            text-decoration: none;
+            outline: none;
+          }
+        }
+      }
+      .active {
+        a {
+          background: linear-gradient(to right, #f04b48 50%, rgba(0,0,0,0) 50%);
+        }
+      }
+    }
+    &.pull-percent {
+      margin: 0 auto;
+    }
+  }
+
+  .construct-area {
+    height: @height;
+    text-align: right;
+    .btn-uspy {
+      background: #f04b48;
+      height: 30px;
+      width: 115px;
+      text-align: center;
+      font: 15px/30px @fm-m;
+      color: #e4e4e4;
+      padding: 0;
+      margin: 20px 20px 20px 0;
+      transition: .2s ease;
+      vertical-align: middle;
+      border-radius: 30px;
+      &:hover {
+        background: #e4e4e4;
+        color: #f04b48;
+        transition: .2s ease;
+      }
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+}
