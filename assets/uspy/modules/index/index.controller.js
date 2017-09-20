@@ -5,11 +5,47 @@
         .module('uspy')
         .controller('indexController', indexController);
 
-    indexController.$inject = ['$location'];
+    indexController.$inject = [];
 
-    function indexController($location) {
+    function indexController() {
         var vm = this;
+
+        vm.active = 1;
         
+        vm.social = [
+            {
+                blockClass: 'youtube',
+                index: 1,
+                icon: 'fa-youtube-play',
+                text: 'YouTube'
+            },
+            {
+                blockClass: 'vk',
+                index: 2,
+                icon: 'fa-vk',
+                text: 'Vkontakte'
+            },
+            {
+                blockClass: 'twitch',
+                index: 3,
+                icon: 'fa-twitch',
+                text: 'Twitch'
+            },
+            {
+                blockClass: 'fb',
+                index: 4,
+                icon: 'fa-facebook',
+                text: 'Facebook'
+            },
+            {
+                blockClass: 'ok',
+                index: 5,
+                icon: 'fa-odnoklassniki',
+                text: 'OK'
+            }
+        ];
+
+                
         activate();
         ///////////////////
         function activate() {

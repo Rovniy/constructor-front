@@ -137,4 +137,138 @@
 
 }
 }
+#section-builder {
+  background: url("/src/img/bg/section-wit-bg.jpg") no-repeat #29292e;
+  background-size: cover;
+  .red-nav {
+    padding-left: 0;
+    padding-top: 35px;
+    padding-bottom: 35px;
 
+    .red-block-nav {
+      background: #f04b48;
+      height: 50px;
+      text-align: left;
+      font: 35px/55px @fm-m;
+      color: #e4e4e4;
+      margin: 0 auto;
+      transition: .2s ease;
+      vertical-align: middle;
+      text-transform: uppercase;
+      padding: 10px;
+    }
+  }
+  .builder-box-area {
+    background-color: #323238;
+    width: 95%;
+    height: 760px;
+    margin: 0 auto 100px;
+    padding: 0 auto 0;
+    border-radius: 20px;
+    -webkit-box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.3);
+    .hor-menu-b {
+      .left-arrow {
+        float: left;
+      }
+      .hor-menu-icons {
+        .hor-menu-icon {
+          padding: 15px 40px 10px;
+          text-align: center;
+          cursor: pointer;
+          min-width: 170px;
+          span {
+            display: block;
+            font: 20px/40px @fm-m;
+            text-transform: uppercase;
+            color: #fff;
+          }
+          .fa {
+            color: white;
+            font-size: 60px;
+            line-height: 60px;
+            text-align: center;
+            padding: 0;
+            margin: 0 auto;
+            display: block;
+            transition: .2s ease;
+            vertical-align: middle;
+            text-transform: uppercase;
+          }
+          &:hover {
+
+            .fa-youtube-play {
+              color: #ffffff;
+              transition: .2s ease;
+            }
+          }
+          &.active {
+            .fa {
+              color: #ffffff;
+              transition: .2s ease;
+            }
+            &.youtube {
+              background: @social-color-youtube;
+            }
+            &.twitch {
+              background: @social-color-twitch;
+            }
+            &.vk {
+              background: @social-color-vk;
+            }
+            &.fb {
+              background: @social-color-facebook;
+            }
+            &.ok {
+              background: @social-color-ok;
+            }
+          }
+          &.youtube {
+            &:hover {
+              background: @social-color-youtube;
+            }
+          }
+          &.twitch {
+             &:hover {
+               background: @social-color-twitch;
+             }
+           }
+          &.vk {
+            &:hover {
+              background: @social-color-vk;
+            }
+          }
+          &.fb {
+            &:hover {
+              background: @social-color-facebook;
+            }
+          }
+          &.ok {
+            &:hover {
+              background: @social-color-ok;
+            }
+          }
+        }
+      }
+    }
+
+  }
+  .logo-builder {
+
+    span {
+      display: block;
+      width: 100%;
+      padding: 0;
+      text-align: center;
+      font: 40px/155px @fm-m;
+      text-transform: uppercase;
+      color: #FFFFFF;
+      transition: .2s ease;
+    }
+
+  }
+
+
+
+}

@@ -1,0 +1,22 @@
+<div class="container" id="section-builder">
+    <div class="row red-nav ">
+     <span class="red-block-nav">Что умеет наш конструктор</span>
+    </div>
+<div class="row builder-box-area">
+    <div class="hor-menu-b">
+        <div class="logo-builder left-arrow col-lg-2">
+            <span>USPY</span>
+        </div>
+        <div class="hor-menu-icons left-arrow">
+            <div class="hor-menu-icon left-arrow {{row.blockClass}}"
+                 ng-class="{'active': vm.active == row.index}"
+                 ng-repeat="row in vm.social | orderBy: 'index' track by $index"
+                 ng-click="vm.active = row.index">
+                <i class="fa {{row.icon}}" aria-hidden="true"></i>
+                <span class="align-text-icon ">{{row.text}}</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
