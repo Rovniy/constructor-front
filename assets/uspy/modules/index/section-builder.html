@@ -18,7 +18,7 @@
         </div>
     </div>
     <div class="row ver-menu-b">
-        <div class="left-menu-b left-arrow col-lg-2">
+        <!--<div class="left-menu-b left-arrow col-lg-2">
             <ul>
                 <li>
                     Интеграция
@@ -39,23 +39,75 @@
                     +menu
                 </li>
             </ul>
-        </div>
-        <div class="info-block-b col-lg-10">
+        </div>-->
+        <div class="info-block-b col-lg-12">
             <div class="row inform-acc-box">
-                <span class="info-button">Информационный блок</span>
-                <ul class="list-inline">
-                <li class="btn-info-box-blue">Кол-во подписчиков:</li>
-                <li class="btn-info-box-red">Кол-во просмотров:</li>
-                <li class="btn-info-box-green">Онлайн:</li>
-                <li class="btn-info-box-purple">Игра:</li>
-                </ul>
-                <span class="info-text">Текстовая нагрузка</span>
-                <span class="petuh">ТЫ ТЕПУХ! <br> ИДИ НАХУЙ ГНИЛЬ, ТЫ НИКОМУ НЕ НУЖЕН!<br> ДАЖЕ СВОЕЙ МАТЕРИ!<br> ДОТВИДАНИНЯ))0) </span>
+                <!-- youtube -->
+                <div ng-if="vm.active == 1">
+                    <div class="row">
+                        <span class="info-button">Информационный блок</span>
+                    </div>
+                    <div class="row">
+                        <ol class="">
+                            <li class="">Кол-во подписчиков:</li>
+                            <li class="">Кол-во просмотров:</li>
+                            <li class="">Онлайн:</li>
+                            <li class="">Игра:</li>
+                        </ol>
+                    </div>
+                </div>
+                <!-- Vkontakte -->
+                <div ng-if="vm.active == 2">
+                    <div class="row">
+                        <span class="info-button">Информационный блок</span>
+                    </div>
+                    <div class="row">
+                        <ol class="">
+                            <li class="">Кол-во подписчиков:</li>
+                        </ol>
+                    </div>
+                </div>
+                <!-- twitch -->
+                <div ng-if="vm.active == 3">
+                    <div class="row">
+                        <span class="info-button">Информационный блок</span>
+                    </div>
+                    <div class="row">
+                        <ol class="">
+                            <li class="">57567567567</li>
+                        </ol>
+                    </div>
+                </div>
+                <!-- Facebook -->
+                <div ng-if="vm.active == 4">
+                    <div class="row">
+                        <span class="info-button">Информационный блок</span>
+                    </div>
+                    <div class="row">
+                        <ol class="">
+                            <li class="">ghjghjghjg</li>
+                        </ol>
+                    </div>
+                </div>
+                <!-- OK -->
+                <div ng-if="vm.active == 5">
+                    <div class="row">
+                        <span class="info-button">Информационный блок</span>
+                    </div>
+                    <div class="row">
+                        <ol class="">
+                            <li class="">999999</li>
+                        </ol>
+                    </div>
+                </div>
 
             </div>
         </div>
 
     </div>
+</div>
+<div class="row button-area">
+    <button class="btn btn-wit" ng-click="vm.modalOpen()">Узнать больше о конструкторе</button>
 </div>
 
 </div>

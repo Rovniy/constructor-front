@@ -6,6 +6,7 @@
   top: 0;
   left: 0;
   right: 0;
+  z-index: 10;
   .logo-area {
     height: @height;
     a {
@@ -17,7 +18,7 @@
       .logo {
         display: block;
         font: 40px/@height @fm-m;
-        text-transform: uppercase;
+        /*text-transform: uppercase;*/
         color: #000;
         transition: .2s ease;
       }
@@ -110,7 +111,6 @@
       margin: 0 auto;
     }
   }
-
   .construct-area {
     height: @height;
     text-align: right;
@@ -135,5 +135,8 @@
         outline: none;
       }
     }
+  }
+  &.moved {
+    background: linear-gradient(to right, rgba(201,201,201,.9) 0%, rgba(201,201,201,.9) 30.7%, rgba(37,37,42,.9) 30.7%, rgba(37,37,42,.9) 100%);
   }
 }

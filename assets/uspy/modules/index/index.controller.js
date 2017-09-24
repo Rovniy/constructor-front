@@ -5,13 +5,11 @@
         .module('uspy')
         .controller('indexController', indexController);
 
-    indexController.$inject = [];
+    indexController.$inject = ['$rootScope'];
 
-    function indexController() {
+    function indexController($rootScope) {
         var vm = this;
-
         vm.active = 1;
-        
         vm.social = [
             {
                 blockClass: 'youtube',
@@ -44,12 +42,18 @@
                 text: 'OK'
             }
         ];
+        
+        vm.modalOpen = modalOpen;
 
-                
+
         activate();
         ///////////////////
         function activate() {
            
+        }
+        
+        function modalOpen() {
+            $rootScope.modalOpen = true;
         }
     }
 })();

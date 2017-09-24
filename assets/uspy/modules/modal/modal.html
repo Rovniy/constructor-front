@@ -1,7 +1,12 @@
-<div class="container-fluid" id="footer">
-    <div class="container">
-        <div class="row ta-center">
-            <span>USPY &copy 2010-2017</span>
+<div id="modal-area" ng-if="modalOpen" ng-controller="modalController as vm">
+    <div class="modal-bg" ng-click="vm.modalClose()"></div>
+    <div class="modal-i">
+        <div class="modal-header">
+            <h3>Спасибо за интерес с USPY!</h3>
+            <i class="fa fa-close" ng-click="vm.modalClose()"></i>
+        </div>
+        <div class="modal-body">
+            <h4>Наш сервис скоро запустится. Следи за новостями в наших социальных сетях.</h4>
             <ul class="list-inline">
                 <li>
                     <a href="//vk.com" target="_blank">
@@ -19,7 +24,6 @@
                     </a>
                 </li>
             </ul>
-            <span class="grey">Товарные знаки, логотипы и бренды принадлежат их владельцам. USPY не несет ответственности за недостоверную информацию о используемых сервисах и не претендует на их права.</span>
         </div>
     </div>
 </div>

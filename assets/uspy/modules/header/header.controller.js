@@ -4,16 +4,35 @@
     angular.module('uspy')
         .controller('headerController', headerController);
 
-    headerController.$inject = [];
+    headerController.$inject = ['$rootScope','$scope','$window'];
 
-    function headerController() {
+    function headerController($rootScope,$scope,$window) {
         var vm = this;
         
+        vm.modalOpen = modalOpen;
 
         activate();
         /////////////////////
         function activate() {
-            
+            scroll();
+        }
+
+        /**
+         * Отслеживание прокрутки скролла документа
+         */
+        function scroll() {
+            angular.element($window).bind("scroll", function() {
+                if (this.pageYOffset > 0) {
+                    vm.moved = true;
+                } else {
+                    vm.moved = false;
+                }
+                $scope.$apply();
+            });
+        }
+
+        function modalOpen() {
+            $rootScope.modalOpen = true;
         }
 
     }
