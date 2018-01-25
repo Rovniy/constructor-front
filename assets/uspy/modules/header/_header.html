@@ -1,0 +1,36 @@
+<div id="header" ng-controller="headerController as vm">
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="pull-left main-menu">
+                <ul class="list-inline">
+                    <li>Пункт 1</li>
+                    <li>Пункт 2</li>
+                    <li>Пункт 3</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="input-group">
+                <input class="form-control" ng-model="vm.canvasWidth" placeholder="1024px"/>
+            </div>
+            <div class="input-group">
+                <input class="form-control" ng-model="vm.canvasHeight" placeholder="400px"/>
+            </div>
+            <div class="input-group">
+                <button class="btn btn-sm btn-warning" ng-click="vm.setCanvasSize(vm.canvasWidth, vm.canvasHeight)">Создать</button>
+            </div>
+
+        </div>
+        <div class="col-lg-4">
+            <div class="pull-right secondary-menu">
+                <ul class="list-inline">
+                    <li>Пункт 1</li>
+                    <li>Пункт 2</li>
+                    <li>Пункт 3</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+</div>

@@ -5,11 +5,19 @@
         .module('uspy')
         .controller('constructorController', constructorController);
 
-    constructorController.$inject = [];
+    constructorController.$inject = ['$scope'];
 
-    function constructorController() {
+    function constructorController($scope) {
         var vm = this;
-        vm.active = 1;
+
+        $scope.$on("drag-ready", function(e,d) { console.log("Drag ready", e,d); });
+
+        $scope.logThis = function(message, draggable, droppable) {
+            return console.log(message, {
+                'draggable': draggable,
+                'droppable': droppable
+            });
+        };
 
         activate();
         ///////////////////

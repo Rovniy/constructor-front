@@ -21,9 +21,17 @@
 
 <body ng-controller="appController">
 
-    @@include('../modules/header/header.html')
 
-    <ng-view autoscroll="true"></ng-view>
 
+    <!--<ng-view autoscroll="true"></ng-view>-->
+
+    <div id="overlay">
+        @@include('../modules/header/_header.html')
+        @@include('../modules/options/_options.html')
+        @@include('../modules/footer/_footer.html')
+    </div>
+
+
+    @@include('../modules/constructor/constructor.html')
 </body>
 </html>

@@ -5,9 +5,9 @@
         .module('uspy')
         .controller('appController', appController);
 
-    appController.$inject = ['$rootScope'];
+    appController.$inject = [];
 
-    function appController($rootScope) {
+    function appController() {
         var app = this;
         
 

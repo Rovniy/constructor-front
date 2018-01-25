@@ -10,7 +10,7 @@
     function config ($routeProvider) {
         $routeProvider
             .when ('/', {
-                templateUrl: '/constructor/constructor.html',
+                templateUrl: '/constructor/_constructor.html',
                 controller: 'constructorController',
                 controllerAs: 'vm'
             })

@@ -1,3 +1,23 @@
-<div id="constructorPage" class="container-fluid">
-    Конструктор
+<div id="constructorPage" ng-controller="constructorController">
+
+    <div drag-and-drop class="drag-container"
+         on-item-placed="logThis('item assigned', draggable, droppable)"
+         on-item-removed="logThis('item removed', draggable, droppable)"
+         on-drag-start="logThis('started dragging', draggable)"
+         on-drag-end="logThis('done dragging', draggable, droppable)"
+         on-drag-enter="logThis('dragged over drop spot', draggable, droppable)"
+         on-drag-leave="logThis('dragged out of drop spot', draggable, droppable)"
+         enable-swap="true"
+         fixed-positions="true"
+    >
+
+
+        @@include('_widgets.html')
+
+
+        <drop-spot max-items="1" class="drop-spot" drop-id="drop-one">
+            <p>Drop Here</p>
+        </drop-spot>
+
+    </div>
 </div>

@@ -3,11 +3,11 @@
 
     angular
         .module('uspy')
-        .controller('headerController', headerController);
+        .controller('optionsController', optionsController);
 
-    headerController.$inject = [];
+    optionsController.$inject = [];
 
-    function headerController() {
+    function optionsController() {
         var vm = this;
 
         activate();
