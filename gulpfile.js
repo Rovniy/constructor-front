@@ -84,7 +84,6 @@ gulp.task('js-uspy', jsGen('uspy'));
  * Сборка всего CSS + LESS
  */
 var lessGen = function(name){
-    console.log('12312341234123');
     return function (){
         var gulpSrc = './assets/' + name + '/core/styles/_common.less',
             gulpDest = './sites/' + name + '/css';

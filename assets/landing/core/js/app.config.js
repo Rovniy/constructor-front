@@ -13,7 +13,7 @@
             theme: 'default', //Тема сайта
             mainUrl: window.location.protocol+ '//' + window.location.host,
             copy: 'Каскономика &copy &year',
-            debug: window.location.host === 'uspy.local:9360'
+            debug: window.location.host == 'uspy.local:9360'
         })
         .config(config);
 

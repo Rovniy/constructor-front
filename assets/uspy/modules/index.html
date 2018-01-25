@@ -3,12 +3,7 @@
 <head>
     <base href="/">
     <meta charset="UTF-8">
-    <meta property="fb:app_id" content="1770916429852830"/>
-    <meta property="og:title" content="uspy"/>
-    <meta property="og:description" content="USPY"/>
-    <meta property="og:image" content="http://www.streampub.net/src/img/base/og-image.jpg">
-    <meta property="og:type" content="website"/>
-    <meta property="og:url" content="http://www.streampub.net" />
+
     <meta name="viewport" content="width=1200">
 
     <title>USPY Constructor</title>
@@ -22,20 +17,13 @@
     <script src="js/templates.js"></script>
 
     @@include('../core/includes/yandex.html')
-    @@include('../core/includes/vk.api.html')
-    @@include('../core/includes/googleanalitics.html', {"goId": "UA-82308901-1"})
 </head>
 
 <body ng-controller="appController">
 
-    <div id="wrap">
-        @@include('../modules/header/header.html')
+    @@include('../modules/header/header.html')
 
-        <ng-view autoscroll="true"></ng-view>
+    <ng-view autoscroll="true"></ng-view>
 
-        @@include('../modules/footer/footer.html')
-    </div>
-
-    <ng-include src="'/modal/modal.html'"></ng-include>
 </body>
 </html>

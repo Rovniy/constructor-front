@@ -10,8 +10,13 @@
     function config ($routeProvider) {
         $routeProvider
             .when ('/', {
-                templateUrl: '/constructor/constructor.html',
-                controller: 'constructorController',
+                templateUrl: '/index/index.html',
+                controller: 'indexController',
+                controllerAs: 'vm'
+            })
+            .when ('/login', {
+                templateUrl: '/login/login.html',
+                controller: 'loginController',
                 controllerAs: 'vm'
             })
             .otherwise({
