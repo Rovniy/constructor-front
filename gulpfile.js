@@ -45,7 +45,8 @@ var jsPaths = [
     'bower_components/angular-translate-storage-cookie/angular-translate-storage-cookie.min.js',
     'bower_components/angular-translate-handler-log/angular-translate-handler-log.min.js',
     'bower_components/angular-jquery/dist/angular-jquery.min.js',
-    'sites/src/libs/logger/xlog.app.js'
+    'sites/src/libs/logger/xlog.app.js',
+    'sites/src/libs/intercom/intercom.min.js'
 ];
 
 /**

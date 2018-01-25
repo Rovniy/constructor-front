@@ -4,9 +4,10 @@
   left: 0;
   bottom: 0;
   right: 0;
-  margin: @header-height @options-width @footer-height @widgets-width;
+  margin: @header-height @options-width @footer-height 0;
+  padding: 50px 50px 50px @widgets-width;
+  overflow: auto;
   #workspace {
-    background: #ccccff;
     &:hover {
       background: yellow;
     }

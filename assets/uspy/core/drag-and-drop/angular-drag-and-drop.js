@@ -436,12 +436,15 @@
                 restrict: 'AE',
                 require: '^dragAndDrop',
                 transclude: true,
-                template: "<div class='drop-content' ng-class='{ \"drop-full\": isFull }' " + "ng-transclude></div>",
                 scope: {
                     dropId: "@",
-                    maxItems: "="
+                    maxItems: "=",
+                    width: "@",
+                    height: "@"
                 },
+                template: "<div class='drop-content' ng-class='{ \"drop-full\": isFull }' style='width:{{width}}px; height:{{height}}px' ng-transclude></div>",
                 link: function (scope, element, attrs, ngDragAndDrop) {
+                    console.log('width:',scope.width, 'height:', scope.height);
                     var addItem, bindEvents, getDroppedPosition, handleResize, unbindEvents, updateDimensions, w;
                     console.log('dropSpot-OK');
                     updateDimensions = function () {

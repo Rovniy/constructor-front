@@ -1,9 +1,27 @@
 #header {
   height: @header-height;
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 0;
   right: @options-width;
   z-index: @z-header;
   background: #856b23;
+  .size-input-inline {
+    span {
+      font: 14px/36px @fm-r;
+      color: @color-main;
+      display: block;
+      margin: 0 5px 0 0;
+    }
+    input {
+      width: 60px;
+      margin: 3px 5px 3px 0;
+    }
+    button {
+      margin: 3px 0;
+    }
+    & > input, & > button, & span {
+      float: left;
+    }
+  }
 }

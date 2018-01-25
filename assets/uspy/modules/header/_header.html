@@ -10,16 +10,12 @@
             </div>
         </div>
         <div class="col-lg-4">
-            <div class="input-group">
-                <input class="form-control" ng-model="vm.canvasWidth" placeholder="1024px"/>
-            </div>
-            <div class="input-group">
-                <input class="form-control" ng-model="vm.canvasHeight" placeholder="400px"/>
-            </div>
-            <div class="input-group">
+            <div class="size-input-inline">
+                <span>Рабочая область</span>
+                <input class="form-control input-sm" ng-model="vm.canvasWidth" placeholder="1024px"/>
+                <input class="form-control input-sm" ng-model="vm.canvasHeight" placeholder="400px"/>
                 <button class="btn btn-sm btn-warning" ng-click="vm.setCanvasSize(vm.canvasWidth, vm.canvasHeight)">Создать</button>
             </div>
-
         </div>
         <div class="col-lg-4">
             <div class="pull-right secondary-menu">

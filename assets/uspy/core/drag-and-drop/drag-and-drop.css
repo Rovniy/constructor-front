@@ -48,27 +48,8 @@ drag-item:active,
     bottom:0;
 }
 
-.drag-container {
-    background:#efe;
-}
 .drag-item {
     position:absolute;
-}
-.item-one {
-    top:10px;
-    left:10px;
-}
-.item-two {
-    top:10px;
-    right:10px;
-}
-.item-three {
-    bottom:10px;
-    left:10px;
-}
-.item-four {
-    bottom:10px;
-    right:10px;
 }
 .drag-content {
     width:100px;
@@ -89,22 +70,24 @@ drag-item:active,
 }
 
 .drop-spot {
-    width:200px;
-    height:300px;
     position:absolute;
     margin:auto;
     z-index:1;
-    top:200px;left:200px;right:200px;bottom:200px;
+    top:200px;
+    left:200px;
+    right:200px;
+    bottom:200px;
 }
 
 .drop-content {
     border: 2px dashed rgba(0,0,0,0.15);
     background:#fff;
     position:absolute;
-    width:50%;
-    height:50%;
     margin:auto;
-    top:200px;left:200px;right:200px;bottom:200px;
+    top:200px;
+    left:200px;
+    right:200px;
+    bottom:200px;
 }
 .dragging .drop-content {
     border: 2px dashed #999;
