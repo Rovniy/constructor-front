@@ -31,6 +31,7 @@
   "dependencies": {
     "angular-bootstrap-datetimepicker": "^1.0.1",
     "angular-bootstrap-lightbox": "^0.10.0",
+    "bower": "^1.8.2",
     "connect-modrewrite": "^0.8.5",
     "grunt": "^0.4.5",
     "grunt-include-replace": "^3.2.0",
