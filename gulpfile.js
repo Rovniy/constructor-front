@@ -26,8 +26,6 @@ let gulp = require('gulp'),
     fs = require('fs');
 
 
-    livereload({ start: true });
-
 let jsPaths = [
     'bower_components/jquery/dist/jquery.min.js',
     'bower_components/bootstrap/dist/js/bootstrap.min.js',
@@ -73,7 +71,6 @@ let jsGen = function(name){
             .pipe(concat('script.js'))
             .pipe(lec({eolc: 'LF', encoding:'utf8'}))
             .pipe(gulp.dest(gulpDest))
-            .pipe(livereload());
     };
 };
 gulp.task('js-uspy', jsGen('uspy'));
@@ -92,7 +89,6 @@ let lessGen = function(name){
             .pipe(concat('style.css'))
             .pipe(lec({eolc: 'LF', encoding:'utf8'}))
             .pipe(gulp.dest(gulpDest))
-            .pipe(livereload());
     };
 };
 gulp.task('less-uspy', lessGen('uspy'));
@@ -115,7 +111,6 @@ let htmlGen = function(name) {
             .pipe(revHash({assetsDir: './sites'}))
             .pipe(hash_src({build_dir: gulpHashSrc, src_path: gulpHashPath}))
             .pipe(gulp.dest(gulpDest))
-            .pipe(livereload());
     }
 };
 gulp.task('html-uspy',['js-uspy', 'templates'], htmlGen('uspy'));
@@ -137,7 +132,6 @@ function templateGen(name) {
                 root: '/'
             }))
             .pipe(gulp.dest(gulpDest))
-            .pipe(livereload());
 
     }
 }
@@ -160,22 +154,23 @@ gulp.task('templates', ['templates-uspy']);
 gulp.task('html', ['html-uspy']);
 gulp.task('build', ['uspy']);
 
-let taskWatch = function(){
-    gulp.run('build');
-    livereload.listen();
-    gulp.watch(['./assets/uspy/**/*.html'], ['html-uspy']);
-    gulp.watch(['./assets/uspy/**/*.less'],['less-uspy']);
-    gulp.watch(['./assets/uspy/**/*.js'],['js-uspy']);
-};
 
 // Watch
-gulp.task('watch', function() {
-    server.listen(35729, function(err) { //35729
-        if (err) return console.log(err);
-        taskWatch()
-    });
+gulp.task('default', function() {
+    livereload.listen();
+    gulp.run('build');
+    gulp.watch(['./assets/uspy/**/*.html'], ['html-uspy','templates-uspy']).on('change', reloader);
+    gulp.watch(['./assets/uspy/**/*.less'],['less-uspy']).on('change', reloader);
+    gulp.watch(['./assets/uspy/**/*.js'],['js-uspy']).on('change', reloader);
     gulp.run('local-serverRu');
 });
+
+function reloader() {
+    setTimeout(function(){
+        livereload.changed('./assets/uspy/modules/index.html')
+    },200)
+}
+
 
 // configure proxy middleware options
 let options = {
@@ -221,8 +216,3 @@ let serverGen = function(proxy1, cb){
 
 // Local server
 gulp.task('local-serverRu', serverGen(proxy, function(){}));
-
-// Default
-gulp.task('default', function() {
-    gulp.run('watch');
-});
