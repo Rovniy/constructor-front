@@ -5,6 +5,36 @@
   bottom: 0;
   right: 0;
   z-index: @z-header;
-  background: #535353;
-  border-top: 1px solid #282828;
+  background: @panel-color;
+  border-top: 1px solid @border-color;
+  box-sizing: content-box;
+  .secondary-menu {
+    padding: 0 10px 0 0;
+    span {
+      font: @font-size/@footer-height @fm-r;
+      color: @color-t;
+      text-shadow: @shadow;
+    }
+  }
+  .online-indicator {
+    width: 3px;
+    margin: 0;
+    padding: 0;
+    height: @footer-height;
+    &.active {
+      background: @color-green-active;
+    }
+    &.no-active {
+      background: @color-green-no-active;
+    }
+  }
+  .indicator-text {
+    margin: 0 0 0 5px;
+    span {
+      display: block;
+      font: @font-size/@footer-height @fm-r;
+      color: @color-semi;
+      text-shadow: @shadow;
+    }
+  }
 }

@@ -3,11 +3,9 @@
 
     angular
         .module('uspy')
-        .constant('wingets', {
-            list: [
-                'text',
-                'button'
-            ]
+        .constant('headerConfig', {
+            defaultCanvasWidth: 800,
+            defaultCanvasHeight: 300
         })
 
 })();

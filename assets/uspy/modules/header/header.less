@@ -5,8 +5,8 @@
   top: 0;
   right: @options-width;
   z-index: @z-header;
-  background: #535353;
-  border-bottom: 1px solid #656565;
+  background: @panel-color;
+  border-bottom: 1px solid @border-light-color;
   box-sizing: content-box;
   .main-menu {
     h3 {
@@ -14,36 +14,39 @@
       font: 18px/@header-height @fm-r;
       float: left;
       color: @color-t;
-      text-shadow: 1px -1px @shadow;
+      text-shadow: @shadow;
     }
     ul {
       float: left;
       padding: 0;
       margin: 0;
       li {
-        font: 14px/@header-height @fm-r;
-        color: @color-t;
-        text-shadow: 1px -1px @shadow;
+        a {
+          font: @font-size/@header-height @fm-r;
+          color: @color-t;
+          text-shadow: @shadow;
+          display: block;
+          margin: 0;
+          padding: 0;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
       }
     }
   }
-  .size-input-inline {
+  .canvas-size {
+    border-left: 1px solid @border-color;
+    border-right: 1px solid @border-color;
     span {
-      font: 14px/36px @fm-r;
+      font: @font-size/@header-height @fm-r;
       color: @color-t;
-      text-shadow: 1px -1px #000;
-      display: block;
-      margin: 0 5px 0 0;
+      text-shadow: @shadow;
+      margin-right: 10px;
     }
-    input {
-      width: 60px;
-      margin: 3px 5px 3px 0;
-    }
-    button {
-      margin: 3px 0;
-    }
-    & > input, & > button, & span {
-      float: left;
+    .fa {
+      font-size: 18px;
+      text-shadow: @shadow;
     }
   }
 }

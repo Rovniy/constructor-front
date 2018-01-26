@@ -14,7 +14,8 @@
             theme: 'default', //Тема сайта
             mainUrl: window.location.protocol+ '//' + window.location.host,
             copy: 'Uspy &copy &year',
-            debug: window.location.host === 'uspy.local:9360'
+            debug: window.location.host === 'uspy.local:9360',
+            apiServer: 'http://localhost:3000'
         })
         .config(config);
 

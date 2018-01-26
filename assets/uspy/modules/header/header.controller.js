@@ -5,10 +5,11 @@
         .module('uspy')
         .controller('headerController', headerController);
 
-    headerController.$inject = ['intercomService'];
+    headerController.$inject = ['intercomService','headerConfig'];
 
-    function headerController(intercomService) {
+    function headerController(intercomService,headerConfig) {
         let vm = this;
+        vm.config = headerConfig;
 
         vm.setCanvasSize = setCanvasSize;
 

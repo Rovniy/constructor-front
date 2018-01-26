@@ -3,11 +3,8 @@
 
     angular
         .module('uspy')
-        .constant('wingets', {
-            list: [
-                'text',
-                'button'
-            ]
+        .constant('footerConfig', {
+            pingTimeOut: 30000, //Время опроса сервера на состояние
         })
 
 })();

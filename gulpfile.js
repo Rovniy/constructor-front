@@ -165,6 +165,7 @@ gulp.task('default', function() {
     gulp.run('local-serverRu');
 });
 
+//Page reloader
 function reloader() {
     setTimeout(function(){
         livereload.changed('./assets/uspy/modules/index.html')

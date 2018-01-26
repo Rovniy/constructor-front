@@ -1,16 +1,9 @@
-<div id="footer" ng-controller="footerController">
-    <div class="pull-left main-menu">
-        <ul class="list-inline">
-            <li>Пункт 1</li>
-            <li>Пункт 2</li>
-            <li>Пункт 3</li>
-        </ul>
+<div id="footer" ng-controller="footerController as vm">
+    <div class="pull-left online-indicator" ng-class="{'active': vm.apiActive === 1, 'no-active': vm.apiActive === 0}"></div>
+    <div class="pull-left indicator-text">
+        <span ng-bind="vm.serverStatusText"></span>
     </div>
     <div class="pull-right secondary-menu">
-        <ul class="list-inline">
-            <li>Пункт 1</li>
-            <li>Пункт 2</li>
-            <li>Пункт 3</li>
-        </ul>
+        <span>version {{vm.config.version}} | USPY © 2018 All rights reserved</span>
     </div>
 </div>

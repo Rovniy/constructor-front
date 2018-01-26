@@ -11,7 +11,7 @@
         /**
          * @type {{ emit: function, on: function, off: function }}
          */
-        var intercom = Intercom.getInstance();
+        let intercom = Intercom.getInstance();
         
         this.emit = emit;
         this.on = on;

@@ -9,8 +9,9 @@
 
     function constructorController($scope,intercomService) {
         let vm = this;
-        vm.canvasWidth = 400; //дефолтная ширина холста
-        vm.canvasHeight = 300; //дефолтнная высота холста
+        vm.canvasWidth = 795; //дефолтная ширина холста
+        vm.canvasHeight = 200; //дефолтнная высота холста
+        vm.canvasStyle = 'width:' + vm.canvasWidth + 'px; height:' + vm.canvasHeight + 'px';
 
         vm.logThis = logThis;
 
