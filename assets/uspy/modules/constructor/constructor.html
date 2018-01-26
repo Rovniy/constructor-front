@@ -11,13 +11,14 @@
          fixed-positions="true"
     >
 
+        <div id="workspace">
+            <drop-spot max-items="1" class="drop-spot" drop-id="drop-one" width="{{vm.canvasWidth}}" height="{{vm.canvasHeight}}" ng-style="width: {{vm.canvasWidth}}px; height: {{vm.canvasHeight}}px">
+                <p>Drop Here</p>
+            </drop-spot>
+        </div>
+
 
         @@include('_widgets.html')
-
-
-        <drop-spot max-items="1" class="drop-spot" drop-id="drop-one" width="{{vm.canvasWidth}}" height="{{vm.canvasHeight}}">
-            <p>Drop Here</p>
-        </drop-spot>
 
     </div>
 </div>

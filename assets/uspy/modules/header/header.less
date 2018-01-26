@@ -5,11 +5,33 @@
   top: 0;
   right: @options-width;
   z-index: @z-header;
-  background: #856b23;
+  background: #535353;
+  border-bottom: 1px solid #656565;
+  box-sizing: content-box;
+  .main-menu {
+    h3 {
+      margin: 0 50px 0 10px;
+      font: 18px/@header-height @fm-r;
+      float: left;
+      color: @color-t;
+      text-shadow: 1px -1px @shadow;
+    }
+    ul {
+      float: left;
+      padding: 0;
+      margin: 0;
+      li {
+        font: 14px/@header-height @fm-r;
+        color: @color-t;
+        text-shadow: 1px -1px @shadow;
+      }
+    }
+  }
   .size-input-inline {
     span {
       font: 14px/36px @fm-r;
-      color: @color-main;
+      color: @color-t;
+      text-shadow: 1px -1px #000;
       display: block;
       margin: 0 5px 0 0;
     }

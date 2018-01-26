@@ -1,17 +1,33 @@
 #constructorPage {
+  padding: @header-height @options-width 0 0;
+  overflow: hidden;
+  height: 100%;
   position: absolute;
   top: 0;
   left: 0;
-  bottom: 0;
   right: 0;
-  margin: @header-height @options-width @footer-height 0;
-  padding: 50px 50px 50px @widgets-width;
-  overflow: auto;
+  bottom: 0;
   #workspace {
-    &:hover {
-      background: yellow;
-    }
+    position: absolute;
+    top: @header-height;
+    left: 0;
+    right: @options-width;
+    bottom: (@footer-height + @widgets-height);
+    background: #282828;
+    overflow-y: auto;
+    overflow-x: auto;
   }
+  #widgets {
+    position: absolute;
+    height: @widgets-height;
+    left: 0;
+    right: @options-width;
+    bottom: @footer-height;
+    overflow: hidden;
+    background: #676767;
+    border-top: 1px solid #282828;
+  }
+
 }
 
 
