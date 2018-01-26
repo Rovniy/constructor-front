@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='uspy'>
+<head>
+    <base href="/">
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=1200">
+
+    <title>USPY Constructor</title>
+
+    <link rel="shortcut icon" href="/src/img/base/favicon.png">
+
+    <link href="css/style.css" rel="stylesheet" type="text/css"/>
+
+    <script src="/src/js/vendor.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/templates.js"></script>
+
+    @@include('../core/includes/yandex.html')
+</head>
+
+<body ng-controller="appController">
+
+    <!--<ng-view autoscroll="true"></ng-view>-->
+
+    <div id="overlay">
+        @@include('../modules/header/_header.html')
+        @@include('../modules/options/_options.html')
+        @@include('../modules/footer/_footer.html')
+    </div>
+
+    @@include('../modules/constructor/constructor.html')
+</body>
+</html>
