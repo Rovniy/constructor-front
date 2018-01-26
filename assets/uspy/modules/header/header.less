@@ -23,12 +23,15 @@
       li {
         a {
           font: @font-size/@header-height @fm-r;
-          color: @color-t;
+          color: @color-semi;
           text-shadow: @shadow;
           display: block;
           margin: 0;
           padding: 0;
+          transition: .2s ease;
           &:hover {
+            transition: .2s ease;
+            color: @color-t;
             text-decoration: underline;
           }
         }
