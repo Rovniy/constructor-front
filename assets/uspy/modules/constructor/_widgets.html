@@ -1,5 +1,16 @@
 <div id="widgets">
-    <div drag-item drag-enabled="true" class="drag-item drag-transform">
-        <p>Clone</p>
+    <div class="widgets-area">
+        <div drag-item drag-enabled="true">
+            <p>Clone</p>
+        </div>
+
+        <div drag-item drag-enabled="true" class="drag-item ng-isolate-scope item-three" drag-id="vk-users-counter" style="transform: translate(0, 0);">
+            <div class="drag-transform" ng-class="{ dropped: isAssigned}">
+                <div class="drag-content">
+                    <p class="ng-scope">Item Three</p>
+                </div>
+            </div>
+        </div>
     </div>
+
 </div>

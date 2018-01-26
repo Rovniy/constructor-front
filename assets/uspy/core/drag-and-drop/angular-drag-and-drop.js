@@ -27,6 +27,7 @@
                             isReady;
                         $scope.draggables = draggables = [];
                         $scope.droppables = droppables = [];
+                        console.log('dragAndDrop-OK');
                         $scope.isDragging = false;
                         $scope.currentDraggable = null;
                         currentDroppable = null;
@@ -221,6 +222,7 @@
                             if (e.touches && e.touches.length === 1) {
                                 draggable.updateOffset(e.touches[0].clientX, e.touches[0].clientY);
                             } else {
+                                console.log(e.clientX, e.clientY);
                                 draggable.updateOffset(e.clientX, e.clientY);
                             }
                             return ngDragAndDrop.checkForIntersection();
@@ -253,6 +255,7 @@
                     var bindEvents, cloneEl, eventOffset, height, init, onPress, pressEvents, setClonePosition,
                         startPosition, transformEl, unbindEvents, updateDimensions, w, width;
                     cloneEl = width = height = startPosition = transformEl = eventOffset = pressEvents = w = null;
+                    console.log('dragItem-OK');
                     updateDimensions = function () {
                         scope.left = scope.x + element[0].offsetLeft;
                         scope.right = scope.left + width;
@@ -442,7 +445,9 @@
                 },
                 template: "<div class='drop-content' ng-class='{ \"drop-full\": isFull }' style='width:{{width}}px; height:{{height}}px' ng-transclude></div>",
                 link: function (scope, element, attrs, ngDragAndDrop) {
-                    let addItem, bindEvents, getDroppedPosition, handleResize, unbindEvents, updateDimensions, w;
+                    console.log('width:',scope.width, 'height:', scope.height);
+                    var addItem, bindEvents, getDroppedPosition, handleResize, unbindEvents, updateDimensions, w;
+                    console.log('dropSpot-OK');
                     updateDimensions = function () {
                         scope.left = element[0].offsetLeft;
                         scope.top = element[0].offsetTop;
