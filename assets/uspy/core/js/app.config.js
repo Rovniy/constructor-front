@@ -6,6 +6,7 @@
             'ngRoute',
             'ngSanitize',
             'ngCookies',
+            'ui.bootstrap',
             'laneolson.ui.dragdrop'
         ])
         .constant('config', {
