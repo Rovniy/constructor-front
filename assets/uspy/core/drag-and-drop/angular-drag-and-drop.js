@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    var module;
+    let module;
 
     module = angular.module("laneolson.ui.dragdrop", []);
 
@@ -23,11 +23,9 @@
                 require: 'dragAndDrop',
                 controller: [
                     '$q', '$scope', function ($q, $scope) {
-                        var currentDroppable, draggables, droppables, element, handlers, isInside, isIntersecting,
-                            isReady;
+                        let currentDroppable, draggables, droppables, element, handlers, isInside, isIntersecting, isReady;
                         $scope.draggables = draggables = [];
                         $scope.droppables = droppables = [];
-                        console.log('dragAndDrop-OK');
                         $scope.isDragging = false;
                         $scope.currentDraggable = null;
                         currentDroppable = null;
@@ -35,7 +33,7 @@
                         isReady = false;
                         handlers = [];
                         isInside = function (point, bounds) {
-                            var ref, ref1;
+                            let ref, ref1;
                             return (bounds.left < (ref = point[0]) && ref < bounds.right) && (bounds.top < (ref1 = point[1]) && ref1 < bounds.bottom);
                         };
                         isIntersecting = function (r1, r2) {
@@ -51,7 +49,7 @@
                             });
                         };
                         this.trigger = function (e) {
-                            var h, i, len, results;
+                            let h, i, len, results;
                             if (e === "ready") {
                                 isReady = true;
                             }
@@ -76,7 +74,7 @@
                             return element;
                         };
                         this.checkForIntersection = function () {
-                            var dropSpot, i, len, results;
+                            let dropSpot, i, len, results;
                             results = [];
                             for (i = 0, len = droppables.length; i < len; i++) {
                                 dropSpot = droppables[i];
@@ -130,7 +128,7 @@
                             return draggables.push(draggable);
                         };
                         this.fireCallback = function (type, e) {
-                            var state;
+                            let state;
                             state = {
                                 draggable: this.getCurrentDraggable(),
                                 droppable: this.getCurrentDroppable(),
@@ -162,7 +160,7 @@
                     }
                 ],
                 link: function (scope, element, attrs, ngDragAndDrop) {
-                    var bindEvents, moveEvents, onMove, onRelease, releaseEvents, unbindEvents;
+                    let bindEvents, moveEvents, onMove, onRelease, releaseEvents, unbindEvents;
                     moveEvents = "touchmove mousemove";
                     releaseEvents = "touchend mouseup";
                     ngDragAndDrop.setDragAndDropElement(element);
@@ -215,14 +213,13 @@
                         }
                     };
                     onMove = function (e) {
-                        var draggable;
+                        let draggable;
                         draggable = ngDragAndDrop.getCurrentDraggable();
                         if (draggable) {
                             ngDragAndDrop.fireCallback('drag', e);
                             if (e.touches && e.touches.length === 1) {
                                 draggable.updateOffset(e.touches[0].clientX, e.touches[0].clientY);
                             } else {
-                                console.log(e.clientX, e.clientY);
                                 draggable.updateOffset(e.clientX, e.clientY);
                             }
                             return ngDragAndDrop.checkForIntersection();
@@ -252,7 +249,7 @@
                     lockVertical: "="
                 },
                 link: function (scope, element, attrs, ngDragAndDrop) {
-                    var bindEvents, cloneEl, eventOffset, height, init, onPress, pressEvents, setClonePosition,
+                    let bindEvents, cloneEl, eventOffset, height, init, onPress, pressEvents, setClonePosition,
                         startPosition, transformEl, unbindEvents, updateDimensions, w, width;
                     cloneEl = width = height = startPosition = transformEl = eventOffset = pressEvents = w = null;
                     console.log('dragItem-OK');
@@ -268,14 +265,14 @@
                         }
                     };
                     setClonePosition = function () {
-                        var elemRect, leftOffset, topOffset;
+                        let elemRect, leftOffset, topOffset;
                         elemRect = element[0].getBoundingClientRect();
                         leftOffset = elemRect.left + eventOffset[0];
                         topOffset = elemRect.top + eventOffset[1];
                         return scope.updateOffset(leftOffset, topOffset);
                     };
                     scope.setPercentPostion = function (xPercent, yPercent) {
-                        var newX, newY;
+                        let newX, newY;
                         newY = (element.parent()[0].clientHeight * (yPercent / 100)) - element[0].clientHeight / 2;
                         newX = (element.parent()[0].clientWidth * (xPercent / 100)) - element[0].clientWidth / 2;
                         return scope.setPosition(newX, newY);
