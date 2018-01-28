@@ -50,7 +50,8 @@
             intercomService.on('header-canvas-create',function(data){
                 vm.canvasWidth = data.sizeX;
                 vm.canvasHeight = data.sizeY;
-            })
+            });
+            intercomService.emit('constructor-on');
         }
 
 

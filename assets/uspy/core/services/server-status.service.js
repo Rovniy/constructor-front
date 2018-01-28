@@ -26,7 +26,6 @@
          * @returns {*} - @text - описание статуса
          */
         function textStatus(status) {
-            console.log('status',status);
             switch (status) {
                 case 1:
                     return 'Сервер работает.';

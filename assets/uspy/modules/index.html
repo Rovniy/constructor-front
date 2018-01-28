@@ -20,17 +20,9 @@
 
     @@include('../core/includes/yandex.html')
 </head>
+<body ng-controller="appController as app">
 
-<body ng-controller="appController">
+    <ng-view autoscroll="true"></ng-view>
 
-    <!--<ng-view autoscroll="true"></ng-view>-->
-
-    <div id="overlay">
-        @@include('../modules/header/_header.html')
-        @@include('../modules/options/_options.html')
-        @@include('../modules/footer/_footer.html')
-    </div>
-
-    @@include('../modules/constructor/constructor.html')
 </body>
 </html>

@@ -1,5 +1,5 @@
 <div id="footer" ng-controller="footerController as vm">
-    <div class="pull-left online-indicator" ng-class="{'active': vm.apiActive === 1, 'no-active': vm.apiActive === 0}"></div>
+    <div class="pull-left online-indicator" ng-class="{'active': vm.apiActive === 1, 'no-active': vm.apiActive === 0, 'reconnect': vm.apiActive === 2}"></div>
     <div class="pull-left indicator-text">
         <span ng-bind="vm.serverStatusText"></span>
     </div>

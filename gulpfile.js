@@ -30,6 +30,7 @@ let jsPaths = [
     'bower_components/jquery/dist/jquery.min.js',
     'bower_components/bootstrap/dist/js/bootstrap.min.js',
     'bower_components/angular/angular.min.js',
+    'bower_components/atmosphere.js/atmosphere.min.js',
     'bower_components/angular-animate/angular-animate.min.js',
     'bower_components/angular-cookies/angular-cookies.min.js',
     'bower_components/angular-sanitize/angular-sanitize.min.js',
@@ -45,7 +46,9 @@ let jsPaths = [
     'bower_components/angular-translate-handler-log/angular-translate-handler-log.min.js',
     'bower_components/angular-jquery/dist/angular-jquery.min.js',
     'sites/src/libs/logger/xlog.app.js',
-    'sites/src/libs/intercom/intercom.min.js'
+    'sites/src/libs/intercom/intercom.min.js',
+    'sites/src/libs/detect/detect.min.js',
+    'sites/src/libs/lockable-storage/LockableStorage.js'
 ];
 
 /**

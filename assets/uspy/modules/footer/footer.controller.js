@@ -5,9 +5,9 @@
         .module('uspy')
         .controller('footerController', footerController);
 
-    footerController.$inject = ['config','$http','serverStatus','footerConfig'];
+    footerController.$inject = ['config','$scope','serverStatus','footerConfig','socketService','intercomService','$timeout'];
 
-    function footerController(config,$http,serverStatus,footerConfig) {
+    function footerController(config,$scope,serverStatus,footerConfig,socketService,intercomService,$timeout) {
         let vm = this;
         vm.config = config;
         vm.apiActive = 0; //Начальная установка на соединение с сервером
@@ -17,6 +17,30 @@
         ///////////////////
         function activate() {
             pingServer(); //Опрос сервера на активность
+
+            $scope.$on('PING',function(data){
+                $timeout(function(){
+                    vm.apiActive = 1;
+                    vm.serverStatusText = serverStatus.textStatus(vm.apiActive);
+                })
+
+            });
+
+            intercomService.on('WS_CONNECTION_LOSS',function(){
+                $timeout(function(){
+                    vm.apiActive = 0;
+                    vm.serverStatusText = serverStatus.textStatus(vm.apiActive);
+                })
+            });
+
+            intercomService.on('WS_RECONNECT',function(){
+                $timeout(function(){
+                    vm.apiActive = 2;
+                    vm.serverStatusText = serverStatus.textStatus(vm.apiActive);
+                })
+            });
+
+
         }
 
         /**
@@ -28,24 +52,19 @@
              * Запрос на активность сервера
              */
             function testServer(){
-                //TODO Заменить REST опрос на WebSockets
-                $http.get(config.apiServer)
-                    .then(function(){
-                        vm.apiActive = 1;
-                    })
-                    .catch(function(){
-                        vm.apiActive = 0;
-                        xlog('footerController : pingServer : server is busy')
-                    })
-                    .finally(function(){
-                        vm.serverStatusText = serverStatus.textStatus(vm.apiActive);
-                        console.log('vm.serverStatusText',vm.serverStatusText);
-                    })
+                socketService.sendMessage({
+                    message_type: 'PING'
+                });
             }
 
-            testServer(); //Запрос на активность сервера
-            setInterval(function(){
+            if (socketService.isOpened()) {
                 testServer(); //Запрос на активность сервера
+            }
+
+            setInterval(function(){
+                if (socketService.isOpened()) {
+                    testServer(); //Запрос на активность сервера
+                }
             },footerConfig.pingTimeOut)
         }
 
