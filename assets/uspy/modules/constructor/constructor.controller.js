@@ -23,8 +23,6 @@
             $scope.$on("drag-ready", function(e,d) { console.log("Drag ready", e,d); });
         }
 
-
-
         /**
          * DEBUG ONLY
          * Вывод информации о событиях Drag & Drop объектов
@@ -54,5 +52,10 @@
                 vm.canvasHeight = data.sizeY;
             })
         }
+
+
+        vm.textVk = '<i class="fa fa-vk"></i><span> Вконтакте</span>';
+        vm.textYt = '<i class="fa fa-youtube"></i><span> Youtube</span>';
+        vm.textTw = '<i class="fa fa-twitch"></i><span> Twitch</span>';
     }
 })();

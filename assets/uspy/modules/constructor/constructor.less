@@ -7,19 +7,6 @@
   left: 0;
   right: 0;
   bottom: 0;
-  .drag-return  {
-    & > drag-item, .drag-item {
-      -webkit-transition: all ease-in-out 0.5s;
-      transition: all ease-in-out 0.5s;
-    }
-  }
-  .drag-container {
-    position:absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-  }
   #workspace {
     position: absolute;
     top: @header-height;
@@ -65,34 +52,110 @@
     bottom: @footer-height;
     overflow: hidden;
     background: @widgets-bg-color;
-    border-top: 1px solid @border-light-color;
     .widgets-area {
       width: 100%;
       height: 100%;
       min-height: 100%;
       position: relative;
-      .widget {
-        float: left;
-        width: 80px;
-        height: 80px;
-        background: #1a85bc;
-        border: 2px solid #1b6d85;
-        border-radius: 10px;
-        cursor: pointer;
-        text-align: center;
-        padding: 5px;
-        margin: 10px 0 0 10px;
-        span {
+      .accordioncontainer {
+        display: block;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        overflow: hidden;
+        .accordiontab {
+          margin: 0;
+          padding: 0;
           display: block;
-          font: 12px/14px @fm-r;
-          color: #fff;
-          text-shadow: @shadow;
-        }
-        i {
-          color: #fff;
-        }
-        &:hover {
-          background: #1a99d1;
+          float: left;
+          height: 100%;
+          .accordion-tab-box {
+            height: 100%;
+            margin: 0;
+            border: none;
+            border-radius: 0;
+            background: none;
+            &.panel-primary {
+              .accordion-tab-header {
+                opacity: 1;
+              }
+            }
+            .accordion-tab-header {
+              width: 50px;
+              height: 100%;
+              float: left;
+              border: none;
+              border-radius: 0;
+              opacity: 0.7;
+              display: inline-block;
+              margin-bottom: 0;
+              font-weight: normal;
+              text-align: center;
+              vertical-align: middle;
+              -ms-touch-action: manipulation;
+              touch-action: manipulation;
+              cursor: pointer;
+              white-space: nowrap;
+              padding: 6px 12px;
+              &:hover {
+                opacity: 1;
+              }
+              .accordion-tab-header-text {
+                transform: rotate(-90deg);
+                text-align: center;
+                span {
+                  font: 18px/18px @fm-r;
+                  color: @color-t;
+                  text-shadow: @shadow;
+                }
+                i {
+                  margin: 0 10px;
+                  color: @color-t;
+                  font-size: 20px;
+                  line-height: 18px;
+                }
+              }
+            }
+            .accordion-tab-body {
+              float: left;
+              overflow: hidden;
+              .panel-body {
+                height: 200px;
+                padding: 0;
+                .widget {
+                  float: left;
+                  width: 180px;
+                  height: 180px;
+                  background: #1a85bc;
+                  border: 2px solid #1b6d85;
+                  border-radius: 10px;
+                  cursor: pointer;
+                  text-align: center;
+                  padding: 10px;
+                  margin: 10px 0 10px 10px;
+                  span {
+                    display: block;
+                    font: 16px/16px @fm-r;
+                    color: #fff;
+                    text-shadow: @shadow;
+                  }
+                  .desc {
+                    display: block;
+                    font: 14px/14px @fm-r;
+                    color: #fff;
+                    text-shadow: @shadow;
+                  }
+                  i {
+                    color: #fff;
+                  }
+                  &:hover {
+                    background: #1a99d1;
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }

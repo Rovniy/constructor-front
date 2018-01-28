@@ -1,0 +1,12 @@
+<div class="accordion-tab-box panel" ng-class="{'panel-primary': t.opened, 'panel-default': !t.opened}">
+    <div class="accordion-tab-header" style="padding-top: {{a.height - 30}}px">
+        <div class="accordion-tab-header-text" ng-bind-html="t.name"></div>
+    </div>
+    <div class="accordion-tab-body">
+        <div style="width:{{t.bodyWidth}}px" style="overflow: hidden">
+            <div class="panel-body">
+                <div class="accordion-tab-scroll" style="overflow-y:hidden;overflow-x: auto; height: {{a.height}}px" ng-transclude></div>
+            </div>
+        </div>
+    </div>
+</div>

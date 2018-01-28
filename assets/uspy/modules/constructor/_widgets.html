@@ -1,20 +1,30 @@
 <div id="widgets">
     <div class="widgets-area">
-        <div class="widget" ng-click="vm.addWidget('1')"
-            uib-tooltip="Подписчики группы" tooltip-placement="right">
-            <i class="fa fa-vk fa-2x ta-center"></i>
-            <span>Подписчики группы</span>
-        </div>
-        <div class="widget" ng-click="vm.addWidget('1')"
-             uib-tooltip="Количество комментов">
-            <i class="fa fa-vk fa-2x ta-center"></i>
-            <span>Количество комментов</span>
-        </div>
-        <div class="widget" ng-click="vm.addWidget('1')"
-             uib-tooltip="Количество лайков">
-            <i class="fa fa-vk fa-2x ta-center"></i>
-            <span>Количество лайков</span>
-        </div>
-    </div>
+        <ul ngc-accordion="accordion0" style="height: 200px;">
+            <li ngc-accordion-tab="{{vm.textVk}}" widget-id="bg-vk" ngc-template="/src/templates/horizontal-accord.html">
+                <div class="widget" ng-click="vm.addWidget('1')">
+                    <span>Подписчики группы</span>
+                    <i class="fa fa-vk fa-5x ta-center"></i>
+                    <span class="desc">Общее количество подписчиков группы.</span>
+                </div>
+                <div class="widget" ng-click="vm.addWidget('1')">
+                    <span>Количество комментариев</span>
+                    <i class="fa fa-vk fa-5x ta-center"></i>
+                    <span class="desc">Количество комментариев на всех постав в ваше группе</span>
+                </div>
+                <div class="widget" ng-click="vm.addWidget('1')">
+                    <span>Количество лайков</span>
+                    <i class="fa fa-vk fa-5x ta-center"></i>
+                    <span class="desc">Количество лайков</span>
+                </div>
+            </li>
+            <li ngc-accordion-tab="{{vm.textTw}}" widget-id="bg-twitch" ngc-template="/src/templates/horizontal-accord.html">
+                <h2>2222222222222222222</h2>
+            </li>
+            <li ngc-accordion-tab="{{vm.textYt}}" widget-id="bg-youtube" ngc-template="/src/templates/horizontal-accord.html">
+                <h3>333333333333333333</h3>
+            </li>
+        </ul>
 
+    </div>
 </div>

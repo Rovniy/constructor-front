@@ -7,7 +7,7 @@
             'ngSanitize',
             'ngCookies',
             'ui.bootstrap',
-            'laneolson.ui.dragdrop'
+            'AccordionModule'
         ])
         .constant('config', {
             version: '0.0.1', //Текущая версия сайта
