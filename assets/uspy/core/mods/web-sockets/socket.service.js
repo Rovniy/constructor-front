@@ -265,7 +265,7 @@
          * @return {boolean}
          */
         function isWebSocketSupported() {
-            var supports = false;
+            let supports = false;
             
             try {
                 supports = 'WebSocket' in window && window.WebSocket.CLOSING === 2;
