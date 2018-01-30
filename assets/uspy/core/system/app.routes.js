@@ -14,7 +14,12 @@
                 controller: 'indexController',
                 controllerAs: 'vm'
             })
-            .when ('/constructor', {
+            .when ('/login', {
+                templateUrl: '/login/_login.html',
+                controller: 'loginController',
+                controllerAs: 'vm'
+            })
+            .when ('/constructor/:userID', {
                 templateUrl: '/constructor/_constructor.html'
             })
             .otherwise({

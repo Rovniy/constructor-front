@@ -9,8 +9,6 @@
 
     function run ($rootScope,$timeout,socketService) {
 
-        socketService.webSocketInit();
-
         socketService.addHandler(function (m) {
             // $timeout для запуска $digest
             $timeout(function () {
