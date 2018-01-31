@@ -2,10 +2,22 @@
     <div class="modal-form">
         <div class="m-body">
             <div class="top-buttons">
-                <div class="top-btn top-left" ng-click="vm.switchPage(1)" ng-class="{'top-active': vm.page === 1, 'top-active': vm.page === 2, 'top-active': vm.page === 3, 'top-inactive': vm.page === 4}">
+                <div class="top-btn top-left" ng-click="vm.switchPage(1)" ng-class="{
+                'top-active': vm.page == 1,
+                'top-active': vm.page == 2,
+                'top-active': vm.page == 3,
+                'top-inactive': vm.page == 4,
+                'top-inactive': vm.page == 5,
+                'top-inactive': vm.page == 6}">
                     <span>Вход</span>
                 </div>
-                <div class=" top-btn top-right" ng-click="vm.switchPage(4)" ng-class="{'top-active': vm.page === 4, 'top-inactive': vm.page !== 4}">
+                <div class=" top-btn top-right" ng-click="vm.switchPage(4)" ng-class="{
+                'top-active': vm.page == 4,
+                'top-active': vm.page == 5,
+                'top-active': vm.page == 6,
+                'top-inactive': vm.page == 1,
+                'top-inactive': vm.page == 2,
+                'top-inactive': vm.page == 3}">
                     <span>Регистрация</span>
                 </div>
             </div>

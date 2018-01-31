@@ -189,6 +189,25 @@
           }
 
         }
+        .next-btn {
+          position: absolute;
+          left: 0;
+          bottom: 60px;
+          right: 0;
+          height: 20px;
+          text-align: center;
+          span {
+            cursor: pointer;
+            display: block;
+            text-align: center;
+            font: 20px/20px @fm-r;
+            color: @color-main;
+            &:hover, &:focus {
+              outline: none;
+              color: @color-error;
+            }
+          }
+        }
         input {
           border: none;
           background: none;
