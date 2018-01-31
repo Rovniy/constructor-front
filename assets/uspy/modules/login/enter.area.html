@@ -1,0 +1,22 @@
+<div class="avatar-area">
+    <div class="avatar">
+        <img src="/src/img/misc/avatar.png"/>
+    </div>
+    <div class="text">
+        <div class="top-text">
+            <span class="hello">Привет</span><span class="hello">, Ровный Андрей!</span>
+        </div>
+        <div class="bottom-text">
+            <span class="email-text">smart.fz@mail.ru</span>
+        </div>
+    </div>
+</div>
+<div class="pass-area">
+    <input type="password" ng-model="vm.passwordText" placeholder="Пароль от аккаунта">
+</div>
+<div class="error-area" ng-show="vm.error">
+    <span class="error">Такой email не найден((( Проверь его корректность.</span>
+</div>
+<div class="move-account">
+    <span class="change-account" ng-click="vm.goToFirst()">Сменить аккаунт</span>
+</div>

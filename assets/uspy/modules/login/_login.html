@@ -1,7 +1,22 @@
 <div id="login">
     <div class="modal-form">
         <div class="m-body">
-            <h3>привет</h3>
+            <div class="top-buttons">
+                <div class="top-btn top-left" ng-click="vm.switchPage(1)" ng-class="{'top-active': vm.page === 1, 'top-active': vm.page === 2, 'top-active': vm.page === 3, 'top-inactive': vm.page === 4}">
+                    <span>Вход</span>
+                </div>
+                <div class=" top-btn top-right" ng-click="vm.switchPage(4)" ng-class="{'top-active': vm.page === 4, 'top-inactive': vm.page !== 4}">
+                    <span>Регистрация</span>
+                </div>
+            </div>
+            <div class="m-area">
+                <div ng-show="vm.page === 1" ng-include="'/login/enter.area.html'" class="area-enter"></div>
+                <div ng-show="vm.page === 2" ng-include="'/login/enter.first.html'" class="area-first"></div>
+                <div ng-show="vm.page === 3" ng-include="'/login/enter.pass.html'" class="area-pass"></div>
+                <div ng-show="vm.page === 4" ng-include="'/login/reg.email.html'" class="area-reg"></div>
+                <div ng-show="vm.page === 5" ng-include="'/login/reg.pass.html'" class="area-reg"></div>
+                <div ng-show="vm.page === 6" ng-include="'/login/reg.name.html'" class="area-reg"></div>
+            </div>
         </div>
     </div>
 </div>

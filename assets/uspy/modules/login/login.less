@@ -1,27 +1,208 @@
 #login {
-  box-sizing: border-box;
   height: 100%;
-  display: flex;
-  align-items: center;
-  font-family: monospace;
-  justify-content: center;
   background-color: #1d212b;
+  margin: 0;
+  padding: 200px 0 0 0;
   .modal-form {
     position: relative;
-    width: 30vw;
-    height: 30vw;
+    width: 400px;
+    height: 400px;
+    margin: auto;
     .m-body {
       position: absolute;
       top:0;
       left:0;
       right: 0;
       bottom:0;
-      line-height: 30vw;
       text-align: center;
+      border-radius: 10px;
       z-index: 2;
       color: #252B37;
-      background-color: #151823;
-      animation: textColor 10s ease infinite;
+      background-color: #e6e6e6;
+      .top-buttons {
+        display: block;
+        float: left;
+        width: 100%;
+        height: 60px;
+        margin: 0;
+        background-color: #e6e6e6;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 11px;
+        .top-btn {
+          float: left;
+          height: 60px;
+          width: 50%;
+          margin: 0;
+          text-align: center;
+          transition: @transition;
+          span {
+            display: block;
+            font: 20px/60px @fm-r;
+          }
+          &.top-active {
+            background-color: #e6e6e6;
+            span {
+              color: @color-main;
+            }
+          }
+          &.top-inactive {
+            cursor: pointer;
+            background-color: #26252a;
+            transition: @transition;
+            span {
+              color: @color-semi;
+              text-shadow: @shadow;
+              transition: @transition;
+            }
+            &:hover {
+              background-color: #535257;
+              span {
+                color: #fff;
+                transition: @transition;
+              }
+            }
+          }
+          &.top-left {
+            border-top-left-radius: 8px;
+          }
+          &.top-right {
+            border-top-right-radius: 8px;
+          }
+        }
+        .top-left {
+          &.top-inactive {
+            border-bottom-right-radius: 10px;
+            -webkit-box-shadow: inset -5px -4px 19px 0px rgba(50, 50, 50, 0.75);
+            -moz-box-shadow:    inset -5px -4px 19px 0px rgba(50, 50, 50, 0.75);
+            box-shadow:         inset -5px -4px 19px 0px rgba(50, 50, 50, 0.75);
+          }
+        }
+        .top-right {
+          &.top-inactive {
+            border-bottom-left-radius: 10px;
+            -webkit-box-shadow: inset 5px -4px 19px 0px rgba(50, 50, 50, 0.75);
+            -moz-box-shadow:    inset 5px -4px 19px 0px rgba(50, 50, 50, 0.75);
+            box-shadow:         inset 5px -4px 19px 0px rgba(50, 50, 50, 0.75);
+          }
+        }
+      }
+      .m-area {
+        padding: 60px;
+        height: 340px;
+        float: left;
+        width: 100%;
+        .area-enter {
+          .avatar-area {
+            float: left;
+            height: 60px;
+            width: 100%;
+            .avatar {
+              float: left;
+              height: 60px;
+              width: 60px;
+              text-align: center;
+              img {
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+                border: 2px solid @color-main;
+                background: #fff;
+              }
+            }
+            .text {
+              float: left;
+              height: 60px;
+              width: 220px;
+              text-align: center;
+              padding: 0 0 0 10px;
+              .top-text {
+                float: left;
+                width: 100%;
+                height: 30px;
+                text-align: left;
+                .hello {
+                  font: 20px/30px @fm-r;
+                  color: @color-main;
+                  text-align: left;
+                }
+              }
+              .bottom-text {
+                float: left;
+                width: 100%;
+                height: 25px;
+                text-align: left;
+                .email-text {
+                  font: 16px/25px @fm-i;
+                  color: @color-main;
+                  text-align: left;
+                }
+              }
+            }
+          }
+          .pass-area {
+            width: 100%;
+            float: left;
+            padding: 20px 0 0 0;
+          }
+          .move-account {
+            position: absolute;
+            bottom: 30px;
+            right: 30px;
+            .change-account {
+              cursor: pointer;
+              font: @font-size/16px @fm-r;
+              color: @color-main;
+              &:hover, &:focus {
+                outline: none;
+                color: @color-error;
+              }
+            }
+          }
+        }
+        .error-area {
+          width: 100%;
+          float: left;
+          padding: 20px 0 0 0;
+          .error {
+            font: @font-size/16px @fm-r;
+            color: @color-error;
+            display: block;
+            text-align: center;
+          }
+        }
+        .area-first {
+          float: left;
+          width: 100%;
+          padding: 80px 0 0 0;
+        }
+        .area-pass {
+          float: left;
+          width: 100%;
+          padding: 80px 0 0 0;
+        }
+        .area-reg {
+          .input-area {
+            margin: 10px 0 0 0;
+            &.no-margin {
+              margin: 0;
+            }
+          }
+
+        }
+        input {
+          border: none;
+          background: none;
+          text-align: center;
+          width: 100%;
+          border-bottom: 2px solid @color-input-wait;
+          font: @font-size/40px @fm-r;
+          color: @color-main;
+          &:hover, &:active, &:focus {
+            outline: none;
+          }
+        }
+      }
+
     }
     &:after {
       position: absolute;
@@ -30,8 +211,8 @@
       left: 0;
       right: 0;
       z-index: 1;
-      height: 100%;
-      width: 100%;
+      height: 90%;
+      width: 90%;
       margin: 0 auto;
       transform: scale(0.75);
       -webkit-filter: blur(5vw);
@@ -40,7 +221,7 @@
       filter: blur(5vw);
       background: linear-gradient(270deg, #0fffc1, #7e0fff);
       background-size: 200% 200%;
-      animation: animateGlow 10s ease infinite;
+      animation: animateGlow 5s ease infinite;
     }
   }
   @keyframes animateGlow {
