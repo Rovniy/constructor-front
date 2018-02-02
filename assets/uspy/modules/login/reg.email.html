@@ -1,9 +1,14 @@
-<div class="input-area center-area">
-    <input type="email" ng-model="vm.emailText" placeholder="Email для входа">
-</div>
+<form name="reg_email" novalidate>
+    <div class="input-area center-area">
+        <input type="email"
+               ng-model="vm.emailText"
+               placeholder="Email для входа"
+               ng-model-options="{debounce: vm.debounce}">
+    </div>
+</form>
 <div class="error-area" ng-show="vm.error">
     <span class="error">Такой email уже занят((( выбери другой</span>
 </div>
-<div class="next-btn">
+<div class="next-btn disabled">
     <span ng-click="vm.switchPage(5)">Далее</span>
 </div>

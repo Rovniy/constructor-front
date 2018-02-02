@@ -5,9 +5,9 @@
         .module('uspy')
         .controller('loginController', loginController);
 
-    loginController.$inject = ['$timeout','config','authenticationService'];
+    loginController.$inject = ['$timeout','$scope','authenticationService'];
 
-    function loginController($timeout,config,authenticationService) {
+    function loginController($timeout,$scope,authenticationService) {
         let vm = this;
         /**
          * 1 - чувак входил и мы знаем его почту
@@ -16,11 +16,13 @@
          * 4 - страница входа
          */
         vm.page = 1;
+        vm.debounce = 1000; //задержка перед изменением модели
 
         vm.login = login;
-        vm.reg = reg;
+        vm.registration = registration;
         vm.switchPage = switchPage;
         vm.goToFirst = goToFirst;
+        vm.activePage = activePage;
 
         activate();
         ///////////////////
@@ -28,12 +30,10 @@
 
         }
 
+        /********************************** ВХОД НА САЙТ ********************************/
+
         function login(){
             authenticationService.login(vm.email, vm.password);
-        }
-
-        function reg(){
-            authenticationService.reg(vm.regLogin, vm.regPass);
         }
 
         /**
@@ -55,7 +55,28 @@
             })
         }
 
+        /**
+         * Добавление класса к кнопкам
+         * @param button
+         * @returns {boolean}
+         */
+        function activePage(button){
+            if (button === 'enter') {
+                if (vm.page === 1 || vm.page === 2 || vm.page === 3) {
+                    return true;
+                }
+            } else if (button === 'reg') {
+                if (vm.page === 4 || vm.page === 5 || vm.page === 6) {
+                    return true;
+                }
+            }
+        }
 
+        /********************************** РЕГИСТРАЦИЯ ********************************/
+
+        function registration(){
+            authenticationService.reg(vm.regLogin, vm.regPass);
+        }
 
     }
 })();

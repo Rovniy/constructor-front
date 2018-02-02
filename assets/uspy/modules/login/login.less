@@ -180,14 +180,23 @@
           width: 100%;
           padding: 80px 0 0 0;
         }
-        .area-reg {
-          .input-area {
-            margin: 10px 0 0 0;
-            &.no-margin {
-              margin: 0;
-            }
+        .input-area {
+          margin: 10px 0 0 0;
+          &.no-margin {
+            margin: 0;
           }
-
+        }
+        .center-area {
+          margin: 60px 0 0 0;
+          &.no-margin {
+            margin: 0;
+          }
+        }
+        .center-area-group {
+          margin: 40px 0 0 0;
+          &.no-margin {
+            margin: 0;
+          }
         }
         .next-btn {
           position: absolute;
@@ -205,6 +214,16 @@
             &:hover, &:focus {
               outline: none;
               color: @color-error;
+            }
+          }
+          &.disabled {
+            span {
+              cursor: auto;
+              color: @color-semi;
+              &:hover, &:focus {
+                outline: none;
+                color: @color-semi;
+              }
             }
           }
         }

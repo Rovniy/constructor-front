@@ -1,9 +1,12 @@
-<div class="input-area">
+<div class="input-area center-area-group">
     <input type="password" ng-model="vm.passwordText" placeholder="Пароль от аккаунта">
 </div>
 <div class="input-area">
-    <input type="password" ng-model="vm.passwordText" placeholder="Повторите пароль">
+    <input type="password" ng-model="vm.passwordText" placeholder="Повторите пароль" ng-model-options="{debounce: vm.debounce}">
 </div>
 <div class="error-area" ng-show="vm.error">
     <span class="error">Кривой пароль(((</span>
+</div>
+<div class="next-btn">
+    <span ng-click="vm.switchPage(6)">Далее</span>
 </div>
