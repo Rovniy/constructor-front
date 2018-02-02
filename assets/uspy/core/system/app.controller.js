@@ -5,9 +5,9 @@
         .module('uspy')
         .controller('appController', appController);
 
-    appController.$inject = ['intercomService','userProfileService','$location'];
+    appController.$inject = ['intercomService','userProfileService','$location','config'];
 
-    function appController(intercomService,userProfileService,$location) {
+    function appController(intercomService,userProfileService,$location,config) {
         let app = this;
         app.overlay = false;
 
@@ -39,23 +39,21 @@
          * @private
          */
         function _onLogin() {
-            userProfileService
-                .loadUserProfile()
-                .then(function(){
-                    socketService.webSocketInit();
+            if (!config.debug) {
+                userProfileService
+                    .loadUserProfile()
+                    .then(function(){
+                        socketService.webSocketInit();
 
-                    if ($location.url() === '/login') {
-                        $location.url('/');
-                    }
-                })
-                .catch(function(){
-                    $location.url('/login');
-                })
-
-
+                        if ($location.url() === '/login') {
+                            $location.url('/');
+                        }
+                    })
+                    .catch(function(){
+                        $location.url('/login');
+                    })
+            }
         }
-
     }
 
 })();
-
