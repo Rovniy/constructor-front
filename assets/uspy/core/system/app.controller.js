@@ -5,9 +5,9 @@
         .module('uspy')
         .controller('appController', appController);
 
-    appController.$inject = ['intercomService','userProfileService','$location','config'];
+    appController.$inject = ['intercomService', 'userProfileService', '$location', 'config'];
 
-    function appController(intercomService,userProfileService,$location,config) {
+    function appController(intercomService, userProfileService, $location, config) {
         let app = this;
         app.overlay = false;
 
@@ -25,10 +25,10 @@
          * Включение и отключение отображения оверлея
          */
         function constructorActivate() {
-            intercomService.on('constructor-on', function(){
+            intercomService.on('constructor-on', function () {
                 app.overlay = true;
             });
-            intercomService.on('constructor-off', function(){
+            intercomService.on('constructor-off', function () {
                 app.overlay = false;
             });
         }
@@ -42,14 +42,14 @@
             if (!config.debug) {
                 userProfileService
                     .loadUserProfile()
-                    .then(function(){
+                    .then(function () {
                         socketService.webSocketInit();
 
                         if ($location.url() === '/login') {
                             $location.url('/');
                         }
                     })
-                    .catch(function(){
+                    .catch(function () {
                         $location.url('/login');
                     })
             }

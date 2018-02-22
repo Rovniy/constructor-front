@@ -5,15 +5,23 @@
         .module('uspy')
         .controller('constructorController', constructorController);
 
-    constructorController.$inject = ['$scope','intercomService'];
+    constructorController.$inject = ['$scope','intercomService','$rootScope','widgetDesc'];
 
-    function constructorController($scope,intercomService) {
+    function constructorController($scope,intercomService,$rootScope,widgetDesc) {
         let vm = this;
         vm.canvasWidth = 795; //дефолтная ширина холста
         vm.canvasHeight = 200; //дефолтнная высота холста
         vm.canvasStyle = 'width:' + vm.canvasWidth + 'px; height:' + vm.canvasHeight + 'px';
+        vm.dictionary = {
+            textVk:'<i class="fa fa-vk"></i><span> Вконтакте</span>',
+            textYt: '<i class="fa fa-youtube"></i><span> Youtube</span>',
+            textTw: '<i class="fa fa-twitch"></i><span> Twitch</span>',
+            textOther: '<i class="fa fa-puzzle-piece"></i><span> Основные</span>'
+        };
+
 
         vm.logThis = logThis;
+        vm.openWidgetDescription = openWidgetDescription;
 
         activate();
         ///////////////////
@@ -54,9 +62,21 @@
             intercomService.emit('constructor-on');
         }
 
+        /**
+         * Открытие модального окна с описанием виджета
+         * @param widget
+         */
+        function openWidgetDescription(widget) {
+            console.log('открываю модалку',widget);
+            /*switch (widget) {
+                case 'some-text':
+                    break;
+                default:
+                    break;
+            }*/
+        }
 
-        vm.textVk = '<i class="fa fa-vk"></i><span> Вконтакте</span>';
-        vm.textYt = '<i class="fa fa-youtube"></i><span> Youtube</span>';
-        vm.textTw = '<i class="fa fa-twitch"></i><span> Twitch</span>';
+        $rootScope.openWidgetDescription = openWidgetDescription;
+
     }
 })();

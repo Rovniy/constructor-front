@@ -48,7 +48,8 @@ let jsPaths = [
     'sites/src/libs/logger/xlog.app.js',
     'sites/src/libs/intercom/intercom.min.js',
     'sites/src/libs/detect/detect.min.js',
-    'sites/src/libs/lockable-storage/LockableStorage.js'
+    'sites/src/libs/lockable-storage/LockableStorage.js',
+    'sites/src/libs/fabric/fabric.js'
 ];
 
 /**
@@ -162,9 +163,9 @@ gulp.task('build', ['uspy']);
 gulp.task('default', function() {
     livereload.listen();
     gulp.run('build');
-    gulp.watch(['./assets/uspy/**/*.html'], ['html-uspy','templates-uspy']).on('change', reloader);
-    gulp.watch(['./assets/uspy/**/*.less'],['less-uspy']).on('change', reloader);
-    gulp.watch(['./assets/uspy/**/*.js'],['js-uspy']).on('change', reloader);
+    gulp.watch('assets/uspy/**/*.html',{cwd:'./'}, ['html-uspy','templates-uspy']).on('change', reloader);
+    gulp.watch('assets/uspy/**/*.less',{cwd:'./'},['less-uspy']).on('change', reloader);
+    gulp.watch('assets/uspy/**/*.js',{cwd:'./'},['js-uspy']).on('change', reloader);
     gulp.run('local-serverRu');
 });
 

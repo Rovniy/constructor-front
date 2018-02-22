@@ -9,6 +9,7 @@
 
     function run ($rootScope,$timeout,socketService) {
 
+
         socketService.addHandler(function (m) {
             // $timeout для запуска $digest
             $timeout(function () {

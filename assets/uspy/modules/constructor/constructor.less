@@ -1,26 +1,38 @@
 #constructorPage {
+  background: #000;
   #workspace {
     position: absolute;
     top: @header-height;
     left: 0;
     right: @options-width;
     bottom: (@footer-height + @widgets-height);
-    background: @border-color;
+    background: linear-gradient(#e2e2e2, rgba(200,200,200,.2) 1px),linear-gradient(90deg, #E2E2E2, #676767 1px);
+    background-size: 15px 15px;
+    background-position: center center;
     overflow-y: auto;
     overflow-x: auto;
+    #mainCanvas {
+      position: absolute;
+      top: 20%;
+      left: 25%;
+      width: 800px;
+      height: 300px;
+      background: #f0f0f0;
+      border: 1px solid #999;
+    }
     .drop-spot {
-      position:relative;
-      margin:100px auto 0;
-      z-index:1;
+      position: relative;
+      margin: 100px auto 0;
+      z-index: 1;
       .drop-content {
-        border: 2px dashed rgba(0,0,0,0.15);
-        background:#fff;
-        position:absolute;
-        margin:auto;
-        top:0;
-        left:0;
-        right:0;
-        bottom:0;
+        border: 2px dashed rgba(0, 0, 0, 0.15);
+        background: #fff;
+        position: absolute;
+        margin: auto;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
         p {
           position: absolute;
           top: 0;
@@ -117,32 +129,49 @@
                 padding: 0;
                 .widget {
                   float: left;
-                  width: 180px;
-                  height: 180px;
-                  background: #1a85bc;
-                  border: 2px solid #1b6d85;
-                  border-radius: 10px;
+                  width: 100px;
+                  height: 100px;
+                  border-radius: 0;
                   cursor: pointer;
                   text-align: center;
-                  padding: 10px;
-                  margin: 10px 0 10px 10px;
-                  span {
+                  padding: 15px 5px;
+                  margin: 0;
+                  position: relative;
+                  .title {
                     display: block;
                     font: 16px/16px @fm-r;
                     color: #fff;
                     text-shadow: @shadow;
+                    margin: 0 auto 5px;
                   }
                   .desc {
+                    position: absolute;
+                    top: 5px;
+                    right: 5px;
                     display: block;
+                    background: #333;
                     font: 14px/14px @fm-r;
-                    color: #fff;
-                    text-shadow: @shadow;
+                    padding: 1px 4px;
+                    border-radius: 2px;
+                    cursor: default;
+                    text-align: center;
+                    i {
+                      color: #999;
+                      margin: 0;
+                    }
+                    &:hover {
+                      background: #0fffc1;
+                      i {
+                        color: #fff;
+                      }
+                    }
                   }
                   i {
                     color: #fff;
+                    margin: 0 auto 10px;
                   }
                   &:hover {
-                    background: #1a99d1;
+                    background: rgb(64, 64, 64);
                   }
                 }
               }
