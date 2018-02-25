@@ -45,11 +45,11 @@ let jsPaths = [
     'bower_components/angular-translate-storage-cookie/angular-translate-storage-cookie.min.js',
     'bower_components/angular-translate-handler-log/angular-translate-handler-log.min.js',
     'bower_components/angular-jquery/dist/angular-jquery.min.js',
+    'node_modules/fabric/dist/fabric.js',
     'sites/src/libs/logger/xlog.app.js',
     'sites/src/libs/intercom/intercom.min.js',
     'sites/src/libs/detect/detect.min.js',
-    'sites/src/libs/lockable-storage/LockableStorage.js',
-    'sites/src/libs/fabric/fabric.js'
+    'sites/src/libs/lockable-storage/LockableStorage.js'
 ];
 
 /**
