@@ -5,9 +5,9 @@
         .module('uspy')
         .controller('constructorController', constructorController);
 
-    constructorController.$inject = ['$scope', 'intercomService', '$rootScope', 'widgetDesc', 'fabricFactory', 'fabricConstants'];
+    constructorController.$inject = ['$rootScope', '$scope', 'intercomService', 'widgetDesc', 'fabricFactory', 'fabricConstants', 'canvasConfig'];
 
-    function constructorController($scope, intercomService, $rootScope, widgetDesc, fabricFactory, fabricConstants) {
+    function constructorController($rootScope, $scope, intercomService, widgetDesc, fabricFactory, fabricConstants, canvasConfig) {
         let vm = this;
         vm.canvasWidth = 795; //дефолтная ширина холста
         vm.canvasHeight = 200; //дефолтнная высота холста
@@ -18,24 +18,26 @@
             textTw: '<i class="fa fa-twitch"></i><span> Twitch</span>',
             textOther: '<i class="fa fa-puzzle-piece"></i><span> Основные</span>'
         };
-
+        vm.fabricConstants = fabricConstants;
         vm.fabric = {};
-        vm.FabricConstants = fabricConstants;
 
-
+        $rootScope.openWidgetDescription = openWidgetDescription;
         vm.logThis = logThis;
         vm.openWidgetDescription = openWidgetDescription;
+
 
         activate();
 
         ///////////////////
         function activate() {
             intercomActivate();
-            setCanvasSettings();
 
             $scope.$on("drag-ready", function (e, d) {
                 console.log("Drag ready", e, d);
             });
+
+            $scope.$on('canvas:created', canvasInit);
+
         }
 
         /**
@@ -58,15 +60,12 @@
          */
         function intercomActivate() {
 
-            /**
-             * Изменение размеров рабочей области из HEADER
-             * header-canvas-create
-             */
-            intercomService.on('header-canvas-create', function (data) {
-                vm.canvasWidth = data.sizeX;
-                vm.canvasHeight = data.sizeY;
-            });
             intercomService.emit('constructor-on');
+
+            intercomService.on('widget: add: text', function () {
+                vm.fabric.addText();
+            });
+
         }
 
         /**
@@ -83,21 +82,28 @@
             }*/
         }
 
-        function setCanvasSettings() {
-            vm.selectCanvas = function() {
-                vm.canvasCopy = {
-                    width: vm.fabric.canvasOriginalWidth,
-                    height: vm.fabric.canvasOriginalHeight
-                };
-            };
-            vm.setCanvasSize = function() {
-                vm.fabric.setCanvasSize(vm.canvasCopy.width, vm.canvasCopy.height);
-                vm.fabric.setDirty(true);
-                delete vm.canvasCopy;
-            };
+        function canvasInit() {
+            vm.fabric = new fabricFactory({
+                JSONExportProperties: vm.fabricConstants.JSONExportProperties,
+                textDefaults: vm.fabricConstants.textDefaults,
+                shapeDefaults: vm.fabricConstants.shapeDefaults,
+                json: null
+            });
+            setCanvasSize(canvasConfig.sizeCollection[0].width, canvasConfig.sizeCollection[0].height);
+            console.log('$rootScope.fabric', vm.fabric);
         }
 
-        $rootScope.openWidgetDescription = openWidgetDescription;
+        function setCanvasSize(width, height) {
+            vm.fabric.setCanvasSize(width, height);
+            /**
+             * Отображение данных в хедере
+             */
+            intercomService.emit('canvas-resize-from-create', {
+                width: width,
+                height: height
+            });
+        }
+
 
     }
 })();

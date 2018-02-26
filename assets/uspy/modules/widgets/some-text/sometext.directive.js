@@ -29,7 +29,7 @@
                 scope.showDescription = showDescription;
 
                 function addWidget() {
-
+                    intercomService.emit('widget: add: text',scope.widget);
                 }
 
                 /**

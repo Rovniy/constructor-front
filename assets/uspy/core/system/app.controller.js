@@ -5,9 +5,9 @@
         .module('uspy')
         .controller('appController', appController);
 
-    appController.$inject = ['intercomService', 'userProfileService', '$location', 'config'];
+    appController.$inject = ['$rootScope','intercomService', 'userProfileService', '$location', 'config'];
 
-    function appController(intercomService, userProfileService, $location, config) {
+    function appController($rootScope, intercomService, userProfileService, $location, config) {
         let app = this;
         app.overlay = false;
 

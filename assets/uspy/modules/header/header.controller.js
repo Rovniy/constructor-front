@@ -11,12 +11,10 @@
         let vm = this;
         vm.config = headerConfig;
 
-        vm.setCanvasSize = setCanvasSize;
-
         activate();
         ///////////////////
         function activate() {
-           
+            setCanvasSize();
         }
 
         /**
@@ -25,10 +23,10 @@
          * @param y - высота холста
          * header-canvas-create
          */
-        function setCanvasSize(x,y) {
-            intercomService.emit('header-canvas-create',{
-                sizeX: x,
-                sizeY: y
+        function setCanvasSize() {
+            intercomService.on('canvas-resize-from-create',function(data){
+                vm.config.defaultCanvasWidth = data.width;
+                vm.config.defaultCanvasHeight = data.height;
             });
         }
     }

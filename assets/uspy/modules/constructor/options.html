@@ -1,0 +1,111 @@
+<div id="options">
+    <h3 class="ta-center style-widget-txt">Стили виджета</h3>
+    <div ng-switch='vm.fabric.selectedObject.type'>
+        <div ng-switch-when='text'>
+            <div class="area-title">
+                <span>Типография</span>
+            </div>
+            <div class="area-content">
+                <i class="fa fa-font icon-title"></i>
+                <input type="text" class="form-text" ng-model="vm.fabric.selectedObject.text"
+                       ng-change="vm.fabric.selectedObject.renderAll().bind(vm.fabric)"/>
+            </div>
+            <div class="area-content">
+                <i class="fa fa-text-height icon-title"></i>
+                <input type='number' class="form-text" ng-model="vm.fabric.selectedObject.fontSize"
+                       ng-change="vm.fabric.selectedObject.renderAll().bind(vm.fabric)">
+            </div>
+            <div class="area-content">
+                <i class="fa fa-text-width icon-title"></i>
+                <input type='number' class="form-text" ng-model="vm.fabric.selectedObject.lineHeight"
+                       ng-change="vm.fabric.selectedObject.renderAll().bind(vm.fabric)">
+            </div>
+            <hr/>
+            <div class="area-content ta-center">
+                <div class='btn-group'>
+                    <button ng-class="{ active: vm.fabric.selectedObject.textAlign == 'left' }"
+                            ng-click="vm.fabric.selectedObject.textAlign = 'left'"
+                            class="btn btn-sm ta-center">
+                        <i class="fa fa-align-left"></i>
+                    </button>
+                    <button
+                            ng-class="{ active: vm.fabric.selectedObject.textAlign == 'center' }"
+                            ng-click="vm.fabric.selectedObject.textAlign = 'center'"
+                            class="btn btn-sm ta-center">
+                        <i class="fa fa-align-center"></i>
+                    </button>
+                    <button
+                            ng-class="{ active: vm.fabric.selectedObject.textAlign == 'right' }"
+                            ng-click="vm.fabric.selectedObject.textAlign = 'right'"
+                            class="btn btn-sm ta-center">
+                        <i class="fa fa-align-right"></i>
+                    </button>
+                </div>
+            </div>
+            <hr/>
+            <div class="area-content ta-center">
+                <div class='btn-group'>
+                    <button ng-class="{ active: vm.fabric.isBold() }"
+                            ng-click="vm.fabric.toggleBold()"
+                            class='btn btn-sm'>
+                        <i class='fa fa-bold'></i>
+                    </button>
+                    <button ng-class="{ active: vm.fabric.isItalic() }"
+                            ng-click="vm.fabric.toggleItalic()"
+                            class='btn btn-sm'>
+                        <i class='fa fa-italic'></i>
+                    </button>
+                    <button ng-class="{ active: vm.fabric.isUnderline() }"
+                            ng-click="vm.fabric.toggleUnderline()"
+                            class='btn btn-sm'>
+                        <i class='fa fa-underline'></i>
+                    </button>
+                    <button
+                            ng-class="{ active: vm.fabric.isLinethrough() }"
+                            ng-click="vm.fabric.toggleLinethrough()"
+                            class='btn btn-sm'>
+                        <i class='fa fa-strikethrough'></i>
+                    </button>
+                </div>
+            </div>
+            <hr/>
+            <div class="area-content">
+                <div class="btn-group">
+                    <a class="btn btn-block dropdown-toggle" data-toggle="dropdown" href="#">
+                        <span class='object-font-family-preview' style='font-family: "{{vm.fabric.selectedObject.fontFamily}}"'>
+                            {{vm.fabric.selectedObject.fontFamily}}
+                        </span>
+                        <span class="fa fa-caret-down"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li ng-repeat='font in vm.fabricConstants.fonts'
+                            ng-click='vm.fabric.selectedObject.fontFamily = font.name'
+                            style='font-family: "{{font.name}}";'>
+                            <a>{{font.name}}</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!--<div ng-switch-when="image">
+            <div class="input-prepend">
+                <button ng-class="{ active: vm.fabric.isTinted() }"
+                        ng-click="vm.fabric.toggleTint()"
+                        class='btn'>
+                    <i class='icon-tint'></i>
+                </button>
+                <input type="text"
+                        class='input-small'
+                        ng-model='vm.fabric.selectedObject.tint'
+                        colorpicker>
+            </div>
+        </div>-->
+
+        <div ng-switch-default>
+            <div class="area-content">
+                <h4 class="default-content">Выберите любой элемент, чтобы отобразить доступные для него свойства.</h4>
+            </div>
+        </div>
+    </div>
+</div>

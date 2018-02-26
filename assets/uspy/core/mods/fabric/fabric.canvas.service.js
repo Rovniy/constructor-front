@@ -5,9 +5,10 @@
         .module('uspy')
         .service('fabricCanvas', fabricCanvas);
 
-    fabricCanvas.$inject = ['$rootScope','$window'];
+    fabricCanvas.$inject = ['$rootScope', '$window'];
 
-    function fabricCanvas($rootScope,$window) {
+    function fabricCanvas($rootScope, $window) {
+
         let self = {
             canvasId: null,
             element: null,

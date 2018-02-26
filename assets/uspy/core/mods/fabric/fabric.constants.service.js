@@ -81,19 +81,16 @@
 
             fonts: [
                 {name: 'Arial'},
-                {name: 'Lora'},
-                {name: 'Croissant One'},
-                {name: 'Architects Daughter'},
-                {name: 'Emblema One'},
-                {name: 'Graduate'},
-                {name: 'Hammersmith One'},
-                {name: 'Oswald'},
-                {name: 'Oxygen'},
-                {name: 'Krona One'},
-                {name: 'Indie Flower'},
-                {name: 'Courgette'},
-                {name: 'Gruppo'},
-                {name: 'Ranchers'}
+                {name: 'Comic Sans MS'},
+                {name: 'Georgia'},
+                {name: 'Impact'},
+                {name: 'Lucida Console'},
+                {name: 'Tahoma'},
+                {name: 'Times New Roman'},
+                {name: 'Trebuchet MS'},
+                {name: 'Verdana'},
+                {name: 'Symbol'},
+                {name: 'MS Sans Serif'}
             ],
 
             shapeCategories: [
@@ -189,7 +186,7 @@
                 scaleY: 1,
                 fontFamily: 'Arial',
                 fontSize: 40,
-                fill: '#454545',
+                fill: '#000',
                 textAlign: 'left'
             }, objectDefaults)
 

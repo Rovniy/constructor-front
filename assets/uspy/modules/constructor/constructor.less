@@ -180,6 +180,59 @@
       }
     }
   }
+  #options {
+    width: @options-width;
+    position: fixed;
+    bottom: @footer-height;
+    top: 0;
+    right: 0;
+    z-index: @z-header;
+    background: #404040;
+    border-right: 1px solid #656565;
+    border-left: 1px solid @border-color;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 0;
+    .style-widget-txt {
+      color: @color-t;
+    }
+    h3 {
+      margin: 0 auto;
+    }
+    hr {
+      border-color: #212121;
+      margin: 5px 0;
+    }
+    .area-title {
+      background: #2b2b2b;
+      border-bottom: 1px solid #212121;
+      border-top: 1px solid #212121;
+      text-align: left;
+      padding-left: 10px;
+      span {
+        font: 12px/24px @fm-b;
+        color: #d9d9d9;
+      }
+    }
+    .area-content {
+      padding: 5px;
+      .icon-title {
+        display: inline-block;
+        color: #fff;
+        width: 8%;
+        text-align: center;
+      }
+      .form-text {
+        width: 90%;
+        display: inline-block;
+      }
+      .default-content {
+        font: 14px/18px @fm-r;
+        color: #fff;
+        text-align: center;
+      }
+    }
+  }
 }
 
 

@@ -13,7 +13,7 @@
         <div class="col-lg-3 canvas-size">
             <div class="size-input-inline">
                 <span>Рабочая область: <i class="fa fa-vk color-vk"></i></span>
-                <span>Размер: {{vm.config.defaultCanvasWidth}}px x {{vm.config.defaultCanvasHeight}}px</span>
+                <span>Размер: {{vm.config.defaultCanvasWidth || 0}} x {{vm.config.defaultCanvasHeight || 0}} px</span>
             </div>
         </div>
         <div class="col-lg-5">

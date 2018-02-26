@@ -11,7 +11,6 @@
         return function (options) {
 
             let fabricWindow = $window.fabric;
-
             let canvas;
             let JSONObject;
             let self = angular.extend({
@@ -20,11 +19,11 @@
                 canvasHeight: 500,
                 canvasOriginalHeight: 800,
                 canvasOriginalWidth: 500,
-                maxContinuousRenderLoops: 25,
-                continuousRenderTimeDelay: 500,
+                maxContinuousRenderLoops: 100,
+                continuousRenderTimeDelay: 0,
                 editable: true,
                 JSONExportProperties: [],
-                loading: false,
+                loading: true,
                 dirty: false,
                 initialized: false,
                 userHasClickedCanvas: false,
@@ -38,7 +37,7 @@
                     padding: 0
                 },
                 canvasDefaults: {
-                    selection: false
+                    selection: true
                 }
             }, options);
 
@@ -188,7 +187,8 @@
             };
 
             self.deactivateAll = function () {
-                canvas.deactivateAll();
+                console.log('canvas',canvas);
+                canvas.discardActiveObject();
                 self.deselectActiveObject();
                 self.render();
             };
