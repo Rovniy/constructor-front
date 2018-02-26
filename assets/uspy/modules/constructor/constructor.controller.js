@@ -24,20 +24,17 @@
         $rootScope.openWidgetDescription = openWidgetDescription;
         vm.logThis = logThis;
         vm.openWidgetDescription = openWidgetDescription;
+        vm.intercomActivate = intercomActivate;
 
 
         activate();
 
         ///////////////////
         function activate() {
-            intercomActivate();
-
             $scope.$on("drag-ready", function (e, d) {
                 console.log("Drag ready", e, d);
             });
-
             $scope.$on('canvas:created', canvasInit);
-
         }
 
         /**
@@ -82,6 +79,9 @@
             }*/
         }
 
+        /**
+         * Инициализация канваса
+         */
         function canvasInit() {
             vm.fabric = new fabricFactory({
                 JSONExportProperties: vm.fabricConstants.JSONExportProperties,
@@ -90,9 +90,13 @@
                 json: null
             });
             setCanvasSize(canvasConfig.sizeCollection[0].width, canvasConfig.sizeCollection[0].height);
-            console.log('$rootScope.fabric', vm.fabric);
         }
 
+        /**
+         * Изменени размера рабочей области
+         * @param width - ширина
+         * @param height - высота
+         */
         function setCanvasSize(width, height) {
             vm.fabric.setCanvasSize(width, height);
             /**

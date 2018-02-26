@@ -2,7 +2,7 @@
     <div ng-include="'/header/_header.html'"></div>
     <div ng-include="'/footer/_footer.html'"></div>
 </div>
-<div id="constructorPage" ng-controller="constructorController as vm">
+<div id="constructorPage" ng-controller="constructorController as vm" ng-init="vm.intercomActivate()">
     <div ng-include="'/constructor/workspace.area.html'"></div>
     <div ng-include="'/constructor/options.html'"></div>
     <div ng-include="'/constructor/widgets.area.html'"></div>

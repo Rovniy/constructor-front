@@ -126,7 +126,7 @@
                 canvas.calcOffset();
                 canvas.renderAll();
                 self.renderCount++;
-                console.log('Render cycle:', self.renderCount);
+                //console.log('Render cycle:', self.renderCount);
             };
 
             self.setCanvas = function (newCanvas) {

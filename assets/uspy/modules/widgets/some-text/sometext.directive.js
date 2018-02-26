@@ -1,4 +1,4 @@
-(function() {
+(function () {
     'use strict';
 
     angular
@@ -12,16 +12,16 @@
             restrict: 'EA',
             template:
             '<div ng-click="addWidget()">' +
-            '<i class="fa fa-font fa-3x ta-center"></i>' +
+            '<i class="fa {{widget.icon}} fa-3x ta-center"></i>' +
             '<span class="title" ng-bind="widget.title"></span>' +
             '</div>' +
             '<span class="desc" ng-click="showDescription(widget.desc)">' +
             '<i class="fa fa-question"></i>' +
             '</span>',
-            scope: {},
-            link: function(scope, element, attributes) {
+            link: function (scope, element, attributes) {
                 scope.widget = {
                     title: 'Любой текст',
+                    icon: 'fa-font',
                     desc: 'Данный виджет вставляет любой статичный текст на холст'
                 };
 
@@ -29,14 +29,14 @@
                 scope.showDescription = showDescription;
 
                 function addWidget() {
-                    intercomService.emit('widget: add: text',scope.widget);
+                    intercomService.emit('widget: add: text', scope.widget);
                 }
 
                 /**
                  * Открытие окна с описанием виджета
                  */
                 function showDescription() {
-                    intercomService.emit('widget: show-description',scope.widget);
+                    intercomService.emit('widget: show-description', scope.widget);
                 }
             }
         };
