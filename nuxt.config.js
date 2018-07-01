@@ -20,8 +20,7 @@ module.exports = {
   },
   plugins: [
     '~/plugins/axios',
-    '~/plugins/element-ui',
-    '~/plugins/noty'
+    '~/plugins/element-ui'
   ],
   head: {
     titleTemplate: 'Uspy - %s',
@@ -45,7 +44,6 @@ module.exports = {
   },
   css: [
     'assets/styles/common.styl',
-    '~/node_modules/noty/lib/noty.css',
     'element-ui/lib/theme-chalk/index.css',
     'element-ui/lib/theme-chalk/display.css'
   ],

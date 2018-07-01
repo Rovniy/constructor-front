@@ -61,6 +61,8 @@
 
   .user-area
     line-height: 60px
+  .el-menu
+    border-bottom none
 
 
 </style>

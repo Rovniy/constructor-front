@@ -32,8 +32,12 @@
 <style lang="stylus">
   .app
     height 100%
+    overflow hidden
     .el-header
       background #545c64
     .el-footer
       background #545c64
+    .el-aside
+      background #fff
+      border-right 1px solid #e6e6e6
 </style>

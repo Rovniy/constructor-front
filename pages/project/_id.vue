@@ -1,6 +1,6 @@
 <template>
-  <div>
-    MAIN
+  <div class="canvas-area">
+    <canvas id="mainCanvas" v-bind:width='canvasWidth' v-bind:height='canvasHeight'></canvas>
   </div>
 </template>
 
@@ -15,11 +15,20 @@
     },
     computed: {},
     data() {
-      return {}
+      return {
+        canvasWidth: '500px',
+        canvasHeight: '300px'
+      }
     },
     mounted() {
-      console.log('123123123', Fabric)
-      let canvas = new Fabric.Canvas('c')
+
+      let canvas = new Fabric.Canvas('mainCanvas',{
+        backgroundColor: 'rgb(100,100,200)',
+        selectionColor: 'blue',
+        selectionLineWidth: 2
+      })
+      canvas.setWidth(this.canvasWidth)
+      canvas.setHeight(this.canvasHeight)
       let rect = new Fabric.Rect({
         left: 100,
         top: 100,
@@ -28,20 +37,24 @@
         height: 20
       })
       canvas.add(rect);
+      console.log('123123123', canvas)
     },
     methods: {
-      console() {
-        this.$noty({
-          type: 'error',
-          timeout: '1111',
-          text: 'вет '
-        })
-      }
     }
   }
 </script>
 
-<style scoped>
+<style lang="stylus" scoped>
+  .canvas-area
+    display flex
+    justify-content center
+    align-items center
+    height 100%
+    min-height 300px
+  #mainCanvas
+    border 1px dashed #47494e
+    background #fff
+    display flex
 
 
 </style>

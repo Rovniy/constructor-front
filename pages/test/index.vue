@@ -1,22 +1,19 @@
 <template>
-    <div class="test">
-        <button class="btn btn-lg btn-warning" @click="noty">Вызвать ошибку</button>
-    </div>
+  <div class="test">
+    <el-button type="primary" @click="noty()" icon="el-icon-edit" circle></el-button>
+  </div>
 
 </template>
 
 <script>
-    export default {
-        methods: {
-            noty() {
-                this.$noty({
-                    type: 'error',  // alert, success, warning, error, info/information
-                    text: '123123123'
-                })
-            }
-        }
+  export default {
+    methods: {
+      noty() {
 
+      }
     }
+
+  }
 </script>
 
 <style>
