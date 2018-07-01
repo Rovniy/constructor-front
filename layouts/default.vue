@@ -1,18 +1,32 @@
 <template>
-    <div class="app">
-        <webHeader/>
-        <nuxt/>
-        <webFooter/>
-    </div>
+  <el-container class="app">
+    <el-header id="header">
+      <uspyHeader/>
+    </el-header>
+    <el-main id="main">
+      <nuxt/>
+    </el-main>
+    <el-footer height="40px" id="footer">
+      <uspyFooter/>
+    </el-footer>
+  </el-container>
 </template>
 
 <script>
-  import webHeader from '@/components/common/header'
-  import webFooter from '@/components/common/footer'
-
+  import uspyHeader from '@/components/common/header'
+  import uspyFooter from '@/components/common/footer'
   export default {
     components: {
-        webHeader, webFooter
+      uspyHeader, uspyFooter
     }
   }
 </script>
+
+<style lang="stylus">
+  .app
+    height 100%
+    .el-header
+      background #545c64
+    .el-footer
+      background #545c64
+</style>
