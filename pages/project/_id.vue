@@ -5,7 +5,8 @@
 </template>
 
 <script>
-  import {fabric as Fabric} from 'fabric'
+  import {fabric} from 'fabric'
+  import eventListener from './eventListener'
 
   export default {
     name: 'ID',
@@ -16,35 +17,52 @@
     computed: {},
     data() {
       return {
-        canvasWidth: '500px',
+        canvasWidth: '700px',
         canvasHeight: '300px'
       }
     },
     mounted() {
 
-      let canvas = new Fabric.Canvas('mainCanvas',{
-        backgroundColor: 'rgb(100,100,200)',
-        selectionColor: 'blue',
-        selectionLineWidth: 2
-      })
-      canvas.setWidth(this.canvasWidth)
-      canvas.setHeight(this.canvasHeight)
-      let rect = new Fabric.Rect({
+      const canvasEl = document.getElementById('mainCanvas')
+      const ctx = canvasEl.getContext('2d');
+      ctx.fillStyle = 'red';
+
+      let canvas = new fabric.Canvas('c', {
+        isDrawingMode: true
+      });
+
+      // create a rectangle object
+      let rect = new fabric.Rect({
         left: 100,
         top: 100,
         fill: 'red',
         width: 20,
         height: 20
-      })
+      });
+
+// "add" rectangle onto canvas
       canvas.add(rect);
-      console.log('123123123', canvas)
+      console.log('canvasEl',canvasEl,'ctx',ctx,'canvas',canvas,'rect',rect)
+
+      /*const canvas = new fabric.Canvas('c',{
+        backgroundColor: 'rgb(100,200,255)',
+        selectionColor: 'blue',
+        selectionLineWidth: 2
+      })
+      canvas.setWidth(this.canvasWidth)
+      canvas.setHeight(this.canvasHeight)
+      let triangle = new fabric.Triangle({
+        width: 20, height: 30, fill: 'blue', left: 50, top: 50
+      });
+      canvas.add(triangle);
+      console.log('123123123', canvas)*/
     },
     methods: {
     }
   }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="stylus">
   .canvas-area
     display flex
     justify-content center
