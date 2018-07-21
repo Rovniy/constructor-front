@@ -40,4 +40,6 @@
     .el-aside
       background #fff
       border-right 1px solid #e6e6e6
+    #main
+      position relative
 </style>

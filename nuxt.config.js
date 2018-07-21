@@ -1,7 +1,5 @@
-const webpack = require('webpack');
-const env = process.env;
-const dotEnvironment = require("dotenv-webpack");
-const {resolve} = require('path');
+const dotEnvironment = require("dotenv-webpack")
+const {resolve} = require('path')
 
 module.exports = {
   mode: "spa",
@@ -20,7 +18,8 @@ module.exports = {
   },
   plugins: [
     '~/plugins/axios',
-    '~/plugins/element-ui'
+    '~/plugins/element-ui',
+    '~/plugins/fabric'
   ],
   head: {
     titleTemplate: 'Uspy - %s',
@@ -48,6 +47,7 @@ module.exports = {
     'element-ui/lib/theme-chalk/display.css'
   ],
   modules: [
-    ['nuxt-stylus-resources-loader', resolve(__dirname, 'assets/styles/utils/vars.styl')]
+    ['nuxt-stylus-resources-loader', resolve(__dirname, 'assets/styles/utils/vars.styl')],
+    '@nuxtjs/font-awesome'
   ]
-};
+}

@@ -1,18 +1,21 @@
 <template>
   <div id="sidebar-widgets">
-    Vk
+    <widget-mock-data/>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'sidebarWidgetsVkontakte',
-  data() {
-    return {
+  import widgetMockData from '../widgets/mockData'
 
+  export default {
+    name: 'sidebarWidgetsVkontakte',
+    components: {
+      widgetMockData
+    },
+    data() {
+      return {}
     }
   }
-}
 </script>
 
 <style lang="stylus" scoped>

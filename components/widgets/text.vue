@@ -1,6 +1,7 @@
 <template>
   <div id="widgetText" class="sidebar-widget" @click="addWidget">
-    Text
+    <span v-show="!await">Text</span>
+    <span v-show="await"><i class="fa fa-spin fa-spinner"/></span>
   </div>
 </template>
 
@@ -9,17 +10,25 @@
     name: 'widgetText',
     data() {
       return {
-
+        await: false
       }
     },
     methods: {
       addWidget() {
-        Vue.$emit('addNewWidget',{
-          type: 'text',
-          data: 'Sample text',
-          posX: 0,
-          posY: 0
-        })
+        this.await = true
+
+        const config = {
+          left: this.$getRandPos(),
+          top: this.$getRandPos(),
+          fill: this.$getRandColor(),
+          fontFamily: 'Tahoma'
+        }
+
+        let widget = new this.$fabric.Text('Sample text', config)
+
+        this.$root.$emit('addNewWidget', widget)
+
+        this.await = false
       }
     }
   }
