@@ -43,11 +43,11 @@ module.exports = {
   },
   css: [
     'assets/styles/common.styl',
+    'assets/styles/libs/all.css',
     'element-ui/lib/theme-chalk/index.css',
     'element-ui/lib/theme-chalk/display.css'
   ],
   modules: [
-    ['nuxt-stylus-resources-loader', resolve(__dirname, 'assets/styles/utils/vars.styl')],
-    '@nuxtjs/font-awesome'
+    ['nuxt-stylus-resources-loader', resolve(__dirname, 'assets/styles/utils/vars.styl')]
   ]
 }

@@ -27,9 +27,7 @@
                 fontFamily: 'Tahoma'
               }
 
-              let widget = new this.$fabric.Text(config.text, config)
-
-              this.$root.$emit('addNewWidget', widget)
+              this.$canvas.add(new this.$fabric.Text(config.text, config))
 
               this.await = false
             })

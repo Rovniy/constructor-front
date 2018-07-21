@@ -2,15 +2,15 @@
   <div id="aside-container">
     <el-menu :default-openeds="['1']">
       <el-submenu index="1">
-        <template slot="title"><i class="el-icon-news"></i>Widgets</template>
+        <template slot="title"><i class="fa fa-cogs"></i> Widgets</template>
         <sidebar-widgets/>
       </el-submenu>
       <el-submenu index="2">
-        <template slot="title"><i class="el-icon-menu"></i>Twitch</template>
+        <template slot="title"><i class="fab fa-twitch"></i> Twitch</template>
         <sidebar-widgets-twitch/>
       </el-submenu>
       <el-submenu index="3">
-        <template slot="title"><i class="el-icon-view"></i>Vkontakte</template>
+        <template slot="title"><i class="fab fa-vk"></i> Vkontakte</template>
         <sidebar-widgets-vkontakte/>
       </el-submenu>
     </el-menu>

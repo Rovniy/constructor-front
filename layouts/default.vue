@@ -18,6 +18,9 @@
   export default {
     components: {
       uspyHeader, uspyFooter
+    },
+    head: {
+      title: 'Main sait'
     }
   }
 </script>

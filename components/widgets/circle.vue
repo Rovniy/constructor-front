@@ -18,15 +18,13 @@
         this.await = true
 
         const config = {
-          left: this.$getRandPos(),
-          top: this.$getRandPos(),
-          fill: this.$getRandColor(),
-          radius: this.$getRandSize()
+          left: this.$getRandPos() || 0,
+          top: this.$getRandPos() || 0,
+          fill: this.$getRandColor() || 'rgb(0,0,0)',
+          radius: this.$getRandSize() || 10
         }
 
-        let widget = new this.$fabric.Circle(config)
-
-        this.$root.$emit('addNewWidget', widget)
+        this.$canvas.add(new this.$fabric.Circle(config))
 
         this.await = false
       }

@@ -6,6 +6,8 @@
 </template>
 
 <script>
+  import Vue from 'vue'
+  import _ from 'lodash'
   import controls from '@/components/+project/controls'
 
   export default {
@@ -18,41 +20,29 @@
       return {
         canvasWidth: 700 + 'px',
         canvasHeight: 400 + 'px',
-        canvas: {}
+        canvas: {},
       }
     },
     mounted() {
       this.createCanvas()
-      this.initMethods()
     },
     methods: {
-      initMethods() {
-        this.actionAddWidget()
-        this.actionRemoveWIdget()
-        this.actionClearCanvas()
-      },
       createCanvas() {
-        this.canvas = new this.$fabric.Canvas('mainCanvas')
-      },
-      actionAddWidget() {
-        this.$root.$on('addNewWidget', data => {
-          this.canvas.add(data)
+        Vue.prototype.$canvas = new this.$fabric.Canvas('mainCanvas', {
+          backgroundColor: 'rgb(255,255,255)'
         })
-      },
-      actionRemoveWIdget() {
-        this.$root.$on('deleteWidget', () => {
-          let group = this.canvas.getActiveObjects()
-          group.forEach(widget => {
-            this.canvas.remove(widget)
-          })
-          this.canvas.discardActiveObject()
-        })
-      },
-      actionClearCanvas() {
-        this.$root.$on('clearCanvas', () => {
-          this.canvas.clear()
-        })
+        this.$canvas.renderAll()
+        this.$canvas.on('after:render', event => {
 
+          //TODO Don't work. XZ why...
+          let s = _.debounce(function () {
+            console.log('23432434')
+            this.saveProject()
+          }, 2000)
+        })
+      },
+      saveProject() {
+        this.$root.$emit('saveProject')
       }
     }
   }
@@ -65,10 +55,13 @@
     align-items center
     height 100%
     min-height 300px
+    background-size 10px 10px
+    background-color #ffffff
+    background-image linear-gradient(to right, #d2d2d2 1px, transparent 1px), linear-gradient(to bottom, #d2d2d2 1px, transparent 1px)
 
   #mainCanvas
     border 1px dashed #47494e
-    background #fff
+    background none
     display flex
 
 

@@ -3,7 +3,7 @@ import Vue from 'vue'
 
 //Create random position for created widget
 const getRandPos = function () {
-  return Math.round(Math.random(0, 200) * 200)
+  return Math.round(Math.random(1, 200) * 200)
 }
 
 //Create random color for created widget
@@ -20,7 +20,7 @@ const getRandColor = function () {
 
 //Create random size for created widget
 const getRandSize = function () {
-  return Math.round(Math.random(0, 200) * 100)
+  return Math.round(Math.random(1, 200) * 100)
 }
 
 Vue.use({

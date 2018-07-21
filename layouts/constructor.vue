@@ -10,6 +10,9 @@
       <el-main id="main">
         <nuxt/>
       </el-main>
+      <el-aside>
+        <uspyCustomization/>
+      </el-aside>
     </el-container>
     <el-footer height="40px" id="footer">
       <uspyFooter/>
@@ -21,10 +24,14 @@
   import uspyHeader from '@/components/common/header'
   import uspyFooter from '@/components/common/footer'
   import uspyAside from '@/components/common/aside'
+  import uspyCustomization from '@/components/common/customization'
 
   export default {
     components: {
-      uspyHeader, uspyFooter, uspyAside
+      uspyHeader, uspyFooter, uspyAside, uspyCustomization
+    },
+    head: {
+      title: 'Project'
     }
   }
 </script>
@@ -42,4 +49,5 @@
       border-right 1px solid #e6e6e6
     #main
       position relative
+      padding 0
 </style>

@@ -1,17 +1,14 @@
-import Vue from 'vue'
-import Axios from '@/plugins/axios'
-
 export const state = () => ({
+  title: 'Sample project'
 
 })
 
-export const getters = {
-}
+export const getters = {}
 
 export const mutations = {
-
+  changeTitle(state, data) {
+    state.title = data
+  }
 }
 
-export const actions = {
-
-}
+export const actions = {}

@@ -18,15 +18,14 @@
         this.await = true
 
         const config = {
-          left: this.$getRandPos(),
-          top: this.$getRandPos(),
-          fill: this.$getRandColor(),
-          fontFamily: 'Tahoma'
+          left: this.$getRandPos() || 0,
+          top: this.$getRandPos() || 0,
+          fill: this.$getRandColor() || 'rgb(0,0,0)',
+          fontFamily: 'Tahoma',
+          text: 'Sample text'
         }
 
-        let widget = new this.$fabric.Text('Sample text', config)
-
-        this.$root.$emit('addNewWidget', widget)
+        this.$canvas.add(new this.$fabric.Text(config.text, config))
 
         this.await = false
       }
