@@ -17,7 +17,7 @@
       addWidget() {
         this.await = true
 
-        const config = {
+        const widgetSettings = {
           left: this.$getRandPos() || 0,
           top: this.$getRandPos() || 0,
           fill: this.$getRandColor() || 'rgb(0,0,0)',
@@ -25,7 +25,9 @@
           text: 'Sample text'
         }
 
-        this.$canvas.add(new this.$fabric.Text(config.text, config))
+        const settings = Object.assign(this.$store.state.controls, widgetSettings)
+
+        this.$canvas.add(new this.$fabric.Text(settings.text, settings))
 
         this.await = false
       }

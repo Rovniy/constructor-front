@@ -11,7 +11,6 @@
 </template>
 
 <script>
-
   export default {
     name: 'controls',
     data() {
@@ -54,10 +53,12 @@
               // active selection needs a reference to the canvas.
               clonedObj.canvas = this.$canvas
               clonedObj.forEachObject(obj => {
+                obj.set(this.config)
                 this.$canvas.add(obj)
               })
               clonedObj.setCoords()
             } else {
+              clonedObj.set(this.config)
               this.$canvas.add(clonedObj)
             }
             this.buffer.copy.top += 10

@@ -1,5 +1,5 @@
 <template>
-  <div id="custom-canvas" class="customization-form">
+  <div id="custom-canvas" class="customization-form customization-area">
     Custom canvas
   </div>
 </template>

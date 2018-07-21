@@ -18,16 +18,18 @@
         this.await = true
 
         this.$axios.get('http://5b5279ded9b92700141c9925.mockapi.io/User')
-            .then(res => {
-              const config = {
-                text: res[this.$fabric.util.getRandomInt(0,50)].name,
+            .then(response => {
+              const widgetSettings = {
+                text: response[this.$fabric.util.getRandomInt(0, 50)].name,
                 left: this.$getRandPos(),
                 top: this.$getRandPos(),
                 fill: this.$getRandColor(),
                 fontFamily: 'Tahoma'
               }
 
-              this.$canvas.add(new this.$fabric.Text(config.text, config))
+              const settings = Object.assign(this.$store.state.controls, widgetSettings)
+
+              this.$canvas.add(new this.$fabric.Text(settings.text, settings))
 
               this.await = false
             })

@@ -1,5 +1,5 @@
 <template>
-  <div id="custom-api" class="customization-form">
+  <div id="custom-api" class="customization-form customization-area">
     <el-button @click="saveProject">Save Project</el-button>
   </div>
 </template>

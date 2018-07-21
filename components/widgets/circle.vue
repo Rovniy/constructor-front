@@ -17,14 +17,18 @@
       addWidget() {
         this.await = true
 
-        const config = {
+        const widgetSettings = {
           left: this.$getRandPos() || 0,
           top: this.$getRandPos() || 0,
           fill: this.$getRandColor() || 'rgb(0,0,0)',
           radius: this.$getRandSize() || 10
         }
 
-        this.$canvas.add(new this.$fabric.Circle(config))
+        console.log('config', this.config)
+
+        const settings = Object.assign(this.$store.state.controls, widgetSettings)
+
+        this.$canvas.add(new this.$fabric.Circle(settings))
 
         this.await = false
       }
