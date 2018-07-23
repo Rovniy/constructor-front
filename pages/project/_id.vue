@@ -1,7 +1,7 @@
 <template>
   <div class="canvas-area">
     <controls/>
-    <canvas id="mainCanvas" v-bind:width='canvasWidth' v-bind:height='canvasHeight'></canvas>
+    <canvas id="mainCanvas" v-bind:width='$store.state.canvasWidth' v-bind:height='$store.state.canvasHeight'></canvas>
   </div>
 </template>
 
@@ -18,8 +18,6 @@
     },
     data() {
       return {
-        canvasWidth: 700 + 'px',
-        canvasHeight: 400 + 'px',
         canvas: {},
       }
     },
@@ -32,15 +30,13 @@
           backgroundColor: 'rgb(255,255,255)'
         })
         this.$canvas.renderAll()
-        this.$canvas.on('after:render', event => {
-
-          //TODO Don't work. XZ why...
-          let s = _.debounce(function () {
-            console.log('23432434')
-            this.saveProject()
-          }, 2000)
-        })
+        this.$canvas.on('after:render', this.throttleSaveProject)
       },
+      throttleSaveProject: _.throttle(
+          function () {
+            this.saveProject()
+          }, 5000
+      ),
       saveProject() {
         this.$root.$emit('saveProject')
       }

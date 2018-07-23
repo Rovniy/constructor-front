@@ -2,6 +2,9 @@ import Vue from 'vue'
 
 export const state = () => ({
   title: 'Sample project',
+  canvasWidth: 700,
+  canvasHeight: 400,
+  hasDetailsControls: false,
   controls: {
     hasControls: true,
     hasBorders: true,
@@ -40,13 +43,12 @@ export const mutations = {
     state.title = data
   },
   changeWidgetControlsDetails(state, data) {
-    console.log(state, data)
     state.controls.hasRotatingPoint = data.hasRotatingPoint
     state.controls.borderColor = data.borderColor
     state.controls.cornerColor = data.cornerColor
     state.controls.cornerStrokeColor = data.cornerStrokeColor
     state.controls._controlsVisibility = data._controlsVisibility
-    console.log(state, data)
+    state.hasDetailsControls = data.hasDetailsControls
   }
 }
 

@@ -39,6 +39,9 @@
       return {
         activeName: 'canvas'
       }
+    },
+    mounted() {
+
     }
   }
 </script>

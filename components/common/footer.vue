@@ -2,10 +2,10 @@
   <div id="footer-container">
     <el-row>
       <el-col :span="12" class="status-area">
-        <span class="app-status">{{ appStatus }}</span>
+        <span class="app-status">Status: {{ appStatus }}</span>
       </el-col>
       <el-col :span="12" class="ta-right">
-        <p class="copy">Copyright "Rovniy" &copy 2011-2018</p>
+        <p class="copy">USPY & Xploit Development &copy 2018</p>
       </el-col>
     </el-row>
   </div>
@@ -21,7 +21,6 @@
     },
     mounted() {
       this.$root.$on('saveProject', () => {
-        console.log('event.l')
         this.saveProject()
       })
     },

@@ -17,14 +17,12 @@
           <el-button size="small" type="danger" @click="resetBackgroundColor">Reset</el-button>
         </el-button-group>
       </el-row>
-      <el-row>
-        <el-form-item label="Details controls">
-          <el-switch v-model="detailsWidgetControls"
-                     active-color="#13ce66"
-                     inactive-color="#ff4949"
-                     @change="changeWidgetControlsDetails"/>
-        </el-form-item>
-      </el-row>
+      <el-form-item label="Details controls">
+        <el-switch v-model="detailsWidgetControls"
+                   active-color="#13ce66"
+                   inactive-color="#ff4949"
+                   @change="changeWidgetControlsDetails"/>
+      </el-form-item>
     </el-form>
   </div>
 </template>
@@ -66,6 +64,7 @@
         let newConfig = {}
         if (this.detailsWidgetControls) {
           newConfig = {
+            hasDetailsControls: true,
             hasRotatingPoint: true,
             borderColor: '#9e7ccb',
             cornerColor: '#ff0032',
@@ -84,6 +83,7 @@
           }
         } else {
           newConfig = {
+            hasDetailsControls: false,
             hasRotatingPoint: false,
             borderColor: '#4096f7',
             cornerColor: '#ffffff',
