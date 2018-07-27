@@ -39,11 +39,26 @@
                    :min="0"
                    :max="80"/>
       </el-form-item>
+      <el-form-item label="Font Family" v-if="activeObject.type === 'text'">
+        <el-select id="custom-font" v-model="activeObject.fontFamily" :change="$canvas.requestRenderAll()" placeholder="Select" size="mini">
+          <el-option
+                  v-for="item in fonts"
+                  :key="item.value"
+                  :label="item.label"
+                  :value="item.value">
+            <span v-bind:style="{fontFamily: item.value}">{{ item.label }}</span>
+          </el-option>
+        </el-select>
+      </el-form-item>
+      <el-form-item label="Color" v-if="activeObject.type === 'text' || activeObject.type === 'geometry'">
+        <el-color-picker v-model="form.fill"></el-color-picker>
+      </el-form-item>
     </el-form>
   </div>
 </template>
 
 <script>
+  import fonts from '@/assets/js/fonts.js'
   export default {
     name: 'customWidget',
     data() {
@@ -54,20 +69,34 @@
           top: 0,
           scale: 1,
           skewX: 0,
-          skewY: 0
+          skewY: 0,
+          fill: '',
+          selectable: true
         },
+        fonts: fonts,
+        textFont: '',
         activeObject: false
       }
     },
     mounted() {
       this.$canvas.on({
-        'selection:updated': this.updateSelectedObjectInfo,
-        'selection:created': this.updateSelectedObjectInfo,
+        'selection:updated': element => {
+          console.log('selection:updated', element)
+          this.updateSelectedObjectInfo(element)
+        },
+        'selection:created': element => {
+          console.log('selection:created', element)
+          this.updateSelectedObjectInfo(element)
+        },
         'selection:cleared': this.resetActiveObject,
-        'object:modified': this.updateSelectedObjectInfo
+        'object:modified': this.updateSelectedObjectInfo,
+        'object:moving': this.updateSelectedObjectInfo
       })
     },
     methods: {
+      reRenderCanvas() {
+        this.$canvas.requestRenderAll()
+      },
       resetActiveObject() {
         this.activeObject = false
         this.$canvas.requestRenderAll()
@@ -76,12 +105,14 @@
         this.activeObject = this.$canvas.getActiveObject()
         if (this.activeObject) {
           this.form = {
-            angle: this.activeObject.angle,
-            left: this.activeObject.left,
-            top: this.activeObject.top,
-            scale: this.activeObject.scaleX,
-            skewX: this.activeObject.skewX,
-            skewY: this.activeObject.skewY
+            angle: this.activeObject.angle || 0,
+            left: this.activeObject.left || 0,
+            top: this.activeObject.top || 0,
+            scale: this.activeObject.scaleX || 0,
+            skewX: this.activeObject.skewX || 0,
+            skewY: this.activeObject.skewY || 0,
+            fill: this.activeObject.fill || '#000000',
+            selectable: this.activeObject.selectable || true
           }
         }
       },
@@ -94,6 +125,7 @@
         this.activeObject.set('skewY', this.form.skewY)
         this.activeObject.set('scaleX', this.form.scale)
         this.activeObject.set('scaleY', this.form.scale)
+        this.activeObject.set('fill', this.form.fill)
         this.activeObject.setCoords()
         this.$canvas.requestRenderAll()
       }

@@ -15,22 +15,24 @@
     },
     methods: {
       addWidget() {
-        this.await = true
+        this.$store.commit('awaitStart')
 
         const widgetSettings = {
+          type: 'geometry',
+          name: 'Cirlce' + this.$store.state.widgetsCounter,
+          zindex: this.$store.state.widgetsCounter,
           left: this.$getRandPos() || 0,
           top: this.$getRandPos() || 0,
           fill: this.$getRandColor() || 'rgb(0,0,0)',
           radius: this.$getRandSize() || 10
         }
 
-        console.log('config', this.config)
-
-        const settings = Object.assign(this.$store.state.controls, widgetSettings)
+        const settings = Object.assign(...this.$store.state.controls, widgetSettings)
 
         this.$canvas.add(new this.$fabric.Circle(settings))
 
-        this.await = false
+        this.$store.commit('increaseWidgetsCounter')
+        this.$store.commit('awaitEnd')
       }
     }
   }

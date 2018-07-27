@@ -25,6 +25,7 @@
         let group = this.$canvas.getActiveObjects()
         group.forEach(widget => {
           this.$canvas.remove(widget)
+          this.$store.commit('decreaseWidgetsCounter')
         })
         this.$canvas.discardActiveObject()
       },
@@ -70,7 +71,6 @@
       },
       cutWidget() {
         let obj = this.$canvas.getActiveObject()
-        console.log(obj)
         if (obj) {
           this.$canvas.getActiveObject().clone(cloned => {
             this.buffer.copy = cloned

@@ -15,9 +15,12 @@
     },
     methods: {
       addWidget() {
-        this.await = true
+        this.$store.commit('awaitStart')
 
         const widgetSettings = {
+          type: 'text',
+          name: 'Text' + this.$store.state.widgetsCounter,
+          zindex: this.$store.state.widgetsCounter,
           left: this.$getRandPos() || 0,
           top: this.$getRandPos() || 0,
           fill: this.$getRandColor() || 'rgb(0,0,0)',
@@ -25,11 +28,12 @@
           text: 'Sample text'
         }
 
-        const settings = Object.assign(this.$store.state.controls, widgetSettings)
+        const settings = Object.assign(...this.$store.state.controls, widgetSettings)
 
         this.$canvas.add(new this.$fabric.Text(settings.text, settings))
 
-        this.await = false
+        this.$store.commit('increaseWidgetsCounter')
+        this.$store.commit('awaitEnd')
       }
     }
   }

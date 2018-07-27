@@ -1,7 +1,10 @@
 <template>
   <div class="canvas-area">
     <controls/>
-    <canvas id="mainCanvas" v-bind:width='$store.state.canvasWidth' v-bind:height='$store.state.canvasHeight'></canvas>
+    <div v-loading="$store.state.await">
+      <canvas id="mainCanvas" v-bind:width='$store.state.canvasWidth'
+              v-bind:height='$store.state.canvasHeight'></canvas>
+    </div>
   </div>
 </template>
 
@@ -31,11 +34,41 @@
         })
         this.$canvas.renderAll()
         this.$canvas.on('after:render', this.throttleSaveProject)
+
+        /********************************* TEST *******************************/
+        const widgetSettings1 = {
+          type: 'geometry',
+          name: 'Cirlce' + this.$store.state.widgetsCounter,
+          zindex: this.$store.state.widgetsCounter,
+          left: this.$getRandPos() || 0,
+          top: this.$getRandPos() || 0,
+          fill: this.$getRandColor() || 'rgb(0,0,0)',
+          radius: this.$getRandSize() || 10
+        }
+        const settings1 = Object.assign(this.$store.state.controls, widgetSettings1)
+        this.$canvas.add(new this.$fabric.Circle(settings1))
+        this.$store.commit('increaseWidgetsCounter')
+        const widgetSettings2 = {
+          type: 'text',
+          name: 'Text' + this.$store.state.widgetsCounter,
+          zindex: this.$store.state.widgetsCounter,
+          left: this.$getRandPos() || 0,
+          top: this.$getRandPos() || 0,
+          fill: this.$getRandColor() || 'rgb(0,0,0)',
+          fontFamily: 'Tahoma',
+          text: 'Sample text'
+        }
+        const settings2 = Object.assign(this.$store.state.controls, widgetSettings2)
+        this.$canvas.add(new this.$fabric.Text(settings2.text, settings2))
+        this.$store.commit('increaseWidgetsCounter')
+        /****************************************************************/
+
+
       },
       throttleSaveProject: _.throttle(
-          function () {
-            this.saveProject()
-          }, 5000
+        function () {
+          this.saveProject()
+        }, 5000
       ),
       saveProject() {
         this.$root.$emit('saveProject')

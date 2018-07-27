@@ -6,7 +6,7 @@
     },
     created() {
       Vue.$on('addNewWidget', data => {
-
+        console.log('EVENTLISTENER : addNewWidget :', data)
       })
     }
   }

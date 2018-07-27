@@ -15,23 +15,27 @@
     },
     methods: {
       addWidget() {
-        this.await = true
+        this.$store.commit('awaitStart')
 
         this.$axios.get('http://5b5279ded9b92700141c9925.mockapi.io/User')
             .then(response => {
               const widgetSettings = {
-                text: response[this.$fabric.util.getRandomInt(0, 50)].name,
+                type: 'group',
+                name: 'VKwidget' + this.$store.state.widgetsCounter,
+                zindex: this.$store.state.widgetsCounter,
+                text: response ? response[this.$fabric.util.getRandomInt(0, 10)].name : 'Some name',
                 left: this.$getRandPos(),
                 top: this.$getRandPos(),
                 fill: this.$getRandColor(),
                 fontFamily: 'Tahoma'
               }
 
-              const settings = Object.assign(this.$store.state.controls, widgetSettings)
+              const settings = Object.assign(...this.$store.state.controls, widgetSettings)
 
               this.$canvas.add(new this.$fabric.Text(settings.text, settings))
 
-              this.await = false
+              this.$store.commit('increaseWidgetsCounter')
+              this.$store.commit('awaitEnd')
             })
       }
     }

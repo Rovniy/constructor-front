@@ -10,11 +10,11 @@ const getRandPos = function () {
 const getRandColor = function () {
   let rand = Math.round(Math.random(0, 3) * 10)
   if (rand < 3) {
-    return 'red'
+    return '#FF0606'
   } else if (rand > 3 && rand < 6) {
-    return 'blue'
+    return '#007BFF'
   } else if (rand > 6) {
-    return 'black'
+    return '#000000'
   }
 }
 

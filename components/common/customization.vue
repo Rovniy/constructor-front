@@ -41,7 +41,15 @@
       }
     },
     mounted() {
-
+      //TODO create logic
+      /*this.$canvas.on({
+        'selection:created': () => {
+          this.activeName = 'widget'
+        },
+        'selection:cleared': () => {
+          this.activeName = 'canvas'
+        }
+      })*/
     }
   }
 </script>

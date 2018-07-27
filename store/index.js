@@ -5,6 +5,8 @@ export const state = () => ({
   canvasWidth: 700,
   canvasHeight: 400,
   hasDetailsControls: false,
+  widgetsCounter: 0,
+  await: false,
   controls: {
     hasControls: true,
     hasBorders: true,
@@ -49,6 +51,18 @@ export const mutations = {
     state.controls.cornerStrokeColor = data.cornerStrokeColor
     state.controls._controlsVisibility = data._controlsVisibility
     state.hasDetailsControls = data.hasDetailsControls
+  },
+  awaitStart(state) {
+    state.await = true
+  },
+  awaitEnd(state) {
+    state.await = false
+  },
+  increaseWidgetsCounter(state) {
+    state.widgetsCounter++
+  },
+  decreaseWidgetsCounter(state) {
+    state.widgetsCounter--
   }
 }
 
