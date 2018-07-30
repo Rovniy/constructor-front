@@ -19,6 +19,7 @@ export const state = () => ({
     cornerStyle: 'circle',
     transparentCorners: false,
     padding: 5,
+    isSelectable: false,
     cornerSize: 10,
     rotatingPointOffset: 20,
     borderColor: '#4096f7',

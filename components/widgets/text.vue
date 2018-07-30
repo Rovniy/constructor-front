@@ -28,7 +28,7 @@
           text: 'Sample text'
         }
 
-        const settings = Object.assign(...this.$store.state.controls, widgetSettings)
+        const settings = Object.assign(this.$store.state.controls, widgetSettings)
 
         this.$canvas.add(new this.$fabric.Text(settings.text, settings))
 

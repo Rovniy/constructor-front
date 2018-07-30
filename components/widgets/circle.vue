@@ -27,7 +27,7 @@
           radius: this.$getRandSize() || 10
         }
 
-        const settings = Object.assign(...this.$store.state.controls, widgetSettings)
+        const settings = Object.assign(this.$store.state.controls, widgetSettings)
 
         this.$canvas.add(new this.$fabric.Circle(settings))
 
