@@ -5,7 +5,7 @@
         <span class="app-status">Status: {{ appStatus }}</span>
       </el-col>
       <el-col :span="12" class="ta-right">
-        <p class="copy">USPY & Xploit Development &copy 2018</p>
+        <p class="copy">AlrCover LLC. 2018-2019 &copy </p>
       </el-col>
     </el-row>
   </div>
