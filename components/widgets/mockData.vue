@@ -23,9 +23,9 @@
                 type: 'group',
                 name: 'VKwidget' + this.$store.state.widgetsCounter,
                 zindex: this.$store.state.widgetsCounter,
-                text: response ? response[this.$fabric.util.getRandomInt(0, 10)].name : 'Some name',
-                left: this.$getRandPos(),
-                top: this.$getRandPos(),
+                text: response ? response[this.$getRandomInt(0, 10)].name : 'Some name',
+                left: this.$getRandomInt(0,500),
+                top: this.$getRandomInt(0, 400),
                 fill: this.$getRandColor(),
                 fontFamily: 'Tahoma'
               }
@@ -34,6 +34,7 @@
 
               this.$canvas.add(new this.$fabric.Text(settings.text, settings))
 
+              this.$canvas.renderAll()
               this.$store.commit('increaseWidgetsCounter')
               this.$store.commit('awaitEnd')
             })

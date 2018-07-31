@@ -1,19 +1,26 @@
 <template>
   <div id="custom-canvas" class="customization-form customization-area">
     <ol>
-      <li v-for="(item, index) in tree"
+      <li v-for="(item, index) in tree.slice().reverse()"
           @mouseover="mouseOverOpacity(item)"
           @mouseleave="mouseLeaveOpacity"
           v-bind:class="{'isSelected': item.isSelectable}">
         <span>
+          {{item.isSelectable}}
           <i class="fa"
              v-bind:class="{'fa-lock-open':item.selectable,'fa-lock':!item.selectable}"
              @click="$canvas._objects[index].selectable = !$canvas._objects[index].selectable; $canvas.discardActiveObject()"/>
         </span>
-        <span @click="selectItem(item, index)">
-          <span> [{{item.zindex}}] </span>
-        <span> {{item.name}} <i class="fa fa-cube" v-bind:style="{color: item.fill}"/></span>
-        <span v-if="item.text"> - {{item.text}}</span>
+        <span v-if="index !== 0">
+          <i class="fa fa-arrow-up" @click="bringForward(item)"/>
+        </span>
+        <span v-if="index !== (tree.length-1)">
+          <i class="fa fa-arrow-down" @click="sendBackwards(item)"/>
+        </span>
+        <span @click="selectItem(item)">
+          <span v-if="!item.text"> {{item.name}}</span>
+          <span> <i class="fa fa-cube" v-if="item.fill !== 'rgb(0,0,0)'" v-bind:style="{color: item.fill}"/> </span>
+          <span v-if="item.text"> {{item.text.slice(0, 20)}}</span>
         </span>
       </li>
     </ol>
@@ -29,14 +36,14 @@
       }
     },
     mounted() {
-      this.tree = this.$canvas._objects
+      this.tree = this.$canvas.getObjects()
 
       this.$canvas.on({
         'object:added': () => {
-          this.tree = this.$canvas._objects
+          this.tree = this.$canvas.getObjects()
         },
         'object:removed': () => {
-          this.tree = this.$canvas._objects
+          this.tree = this.$canvas.getObjects()
         },
         'selection:created': this.findAndSetSelectedItem,
         'selection:updated': this.findAndSetSelectedItem,
@@ -62,8 +69,8 @@
       selectItem(item) {
         if (item.selectable) {
           this.$canvas.discardActiveObject()
+          item.set('isSelectable', true)
           this.$canvas.setActiveObject(item)
-          item.isSelectable = true
         }
       },
       findAndSetSelectedItem(selection) {
@@ -71,15 +78,21 @@
         selection.selected.forEach(item => {
           this.tree.forEach(f => {
             if (f.name === item.name) {
-              f.isSelectable = true
+              f.set('isSelectable', true)
             }
           })
         })
       },
       clearSelectedItem() {
         this.$canvas.forEachObject(f => {
-          f.isSelectable = false
+          f.set('isSelectable', false)
         })
+      },
+      bringForward(item) {
+        this.$canvas.bringForward(item)
+      },
+      sendBackwards(item) {
+        this.$canvas.sendBackwards(item)
       }
     }
   }

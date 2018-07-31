@@ -1,11 +1,6 @@
 import {fabric as Fabric} from 'fabric'
 import Vue from 'vue'
 
-//Create random position for created widget
-const getRandPos = function () {
-  return Math.round(Math.random(1, 200) * 100)
-}
-
 //Create random color for created widget
 const getRandColor = function () {
   let rand = Math.round(Math.random(0, 3) * 10)
@@ -26,9 +21,8 @@ const getRandSize = function () {
 Vue.use({
   install(Vue) {
     Vue.prototype.$fabric = Fabric
-    Vue.prototype.$getRandPos = getRandPos
+    Vue.prototype.$getRandomInt = fabric.util.getRandomInt
     Vue.prototype.$getRandColor = getRandColor
-    Vue.prototype.$getRandSize = getRandSize
   }
 })
 

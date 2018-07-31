@@ -39,7 +39,8 @@
                    :min="0"
                    :max="80"/>
       </el-form-item>
-      <el-form-item label="Font Family" v-if="activeObject.type === 'text'">
+      <el-form-item label="Font Family"
+                    v-if="activeObject.type === 'text' || activeObject.type === 'textbox'">
         <el-select id="custom-font" v-model="activeObject.fontFamily" :change="$canvas.requestRenderAll()" placeholder="Select" size="mini">
           <el-option
                   v-for="item in fonts"
@@ -118,15 +119,16 @@
       },
       setNewSettings() {
         this.activeObject = this.$canvas.getActiveObject()
-        this.activeObject.rotate(this.form.angle)
-        this.activeObject.set('left', this.form.left)
-        this.activeObject.set('top', this.form.top)
-        this.activeObject.set('skewX', this.form.skewX)
-        this.activeObject.set('skewY', this.form.skewY)
-        this.activeObject.set('scaleX', this.form.scale)
-        this.activeObject.set('scaleY', this.form.scale)
-        this.activeObject.set('fill', this.form.fill)
-        this.activeObject.setCoords()
+        this.activeObject
+            .rotate(this.form.angle)
+            .set('left', this.form.left)
+            .set('top', this.form.top)
+            .set('skewX', this.form.skewX)
+            .set('skewY', this.form.skewY)
+            .set('scaleX', this.form.scale)
+            .set('scaleY', this.form.scale)
+            .set('fill', this.form.fill)
+            .setCoords()
         this.$canvas.requestRenderAll()
       }
     },

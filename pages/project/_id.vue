@@ -40,10 +40,10 @@
           type: 'geometry',
           name: 'Cirlce' + this.$store.state.widgetsCounter,
           zindex: this.$store.state.widgetsCounter,
-          left: this.$getRandPos() || 0,
-          top: this.$getRandPos() || 0,
+          left: this.$getRandomInt(0,500) || 0,
+          top: this.$getRandomInt(0, 400) || 0,
           fill: this.$getRandColor() || 'rgb(0,0,0)',
-          radius: this.$getRandSize() || 10
+          radius: this.$getRandomInt(50,200) || 10
         }
         const settings1 = Object.assign(this.$store.state.controls, widgetSettings1)
         this.$canvas.add(new this.$fabric.Circle(settings1))
@@ -52,8 +52,8 @@
           type: 'text',
           name: 'Text' + this.$store.state.widgetsCounter,
           zindex: this.$store.state.widgetsCounter,
-          left: this.$getRandPos() || 0,
-          top: this.$getRandPos() || 0,
+          left: this.$getRandomInt(0,500) || 0,
+          top: this.$getRandomInt(0,400) || 0,
           fill: this.$getRandColor() || 'rgb(0,0,0)',
           fontFamily: 'Tahoma',
           text: 'Sample text'
