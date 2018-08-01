@@ -1,0 +1,46 @@
+.el-dialog
+  border-radius: 3px
+  background: $color-main
+  box-shadow: 0 6px 9px 0 rgba(0, 0, 0, 0.23)
+  padding: 0
+  .el-dialog__header
+    display: none!important
+  .el-dialog__body
+    padding: 0
+    h1
+      margin: 0 0 20px 20px
+      padding: 17px 0 0 0
+      color: #000000
+      font-size: 20px
+      font-weight: bold
+      display: block
+      position: relative
+      &:after
+        position: absolute
+        top: 0
+        left: 0
+        height: 3px
+        width: 200px
+        background: green
+        display: block
+        content: ''
+    .controls-area
+      margin 20px 0
+      .el-button
+        margin 0 5px 20px
+  .modal-title
+    color: $color-text
+    font-weight: bold
+
+  label
+    font-size: 12px
+    font-weight: 600
+    color: $color-text
+    display: block
+    margin: 14px 0 4px 0
+  .content-inline
+    label
+      float: left
+    i
+      float: right
+      margin: 14px 0 4px 0

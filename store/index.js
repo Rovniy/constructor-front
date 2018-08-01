@@ -1,5 +1,3 @@
-import Vue from 'vue'
-
 export const state = () => ({
   title: 'Sample project',
   canvasWidth: 700,

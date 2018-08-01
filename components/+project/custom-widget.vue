@@ -120,7 +120,7 @@
       setNewSettings() {
         this.activeObject = this.$canvas.getActiveObject()
         this.activeObject
-            .rotate(this.form.angle)
+            .set('angle', this.form.angle)
             .set('left', this.form.left)
             .set('top', this.form.top)
             .set('skewX', this.form.skewX)

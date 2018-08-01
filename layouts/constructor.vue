@@ -16,6 +16,7 @@
     </el-container>
     <el-footer height="40px" id="footer">
       <uspyFooter/>
+      <uploader/>
     </el-footer>
   </el-container>
 </template>
@@ -25,10 +26,11 @@
   import uspyFooter from '@/components/common/footer'
   import uspyAside from '@/components/common/aside'
   import uspyCustomization from '@/components/common/customization'
+  import Uploader from '@/components/common/image-uploader'
 
   export default {
     components: {
-      uspyHeader, uspyFooter, uspyAside, uspyCustomization
+      uspyHeader, uspyFooter, uspyAside, uspyCustomization, Uploader
     },
     head: {
       title: 'Project'
